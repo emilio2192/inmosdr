@@ -1,0 +1,19 @@
+<div class="login-container">
+  <div class="box-login">
+    <h4>Ingreso</h4>
+    <div class="row">
+      <input type="text" placeholder="usuario" [(ngModel)]="username" />
+    </div>
+    <div class="row">
+      <input type="password" placeholder="password" [(ngModel)]="password" />
+    </div>
+    <div class="row">
+      <button (click)="login()">
+        INGRESAR
+      </button>
+    </div>
+    <div class="row" *ngIf="loginRequest">
+      <h5 class="error">{{loginRequest}}</h5>
+    </div>
+  </div>
+</div>

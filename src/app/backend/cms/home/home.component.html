@@ -1,0 +1,44 @@
+<div class="row col-sm-12">
+  <h1 class="row col-sm-12">Home Page</h1>
+  <div class="row col-sm-12">
+    <div class="col-sm-5">
+      <label>Logo</label>
+    </div>
+    <div class="col-sm-7">
+      <app-uploadfy *ngIf="documentPath" [documentId]="documentId" [collection]="collection" [attribute]="'logo'"></app-uploadfy>
+    </div>
+  </div>
+  <div class="row col-sm-12">
+    <div class="col-sm-5">
+      <label>Imagen de Fondo</label>
+    </div>
+    <div class="col-sm-7">
+      <app-uploadfy *ngIf="documentPath" [documentId]="documentId" [collection]="collection" [attribute]="'imagen'"></app-uploadfy>
+    </div>
+  </div>
+  <div class="row col-sm-12">
+    <div class="col-sm-5">
+      <label>Logo Camara</label>
+    </div>
+    <div class="col-sm-7">
+      <app-uploadfy *ngIf="documentPath" [documentId]="documentId" [collection]="collection" [attribute]="'logoCamara'"></app-uploadfy>
+    </div>
+  </div>
+  <div class="row col-sm-12">
+    <div class="col-sm-5">
+      <label>Contenido</label>
+    </div>
+    <div class="col-sm-7">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Contenido"  [(ngModel)]="contentText" >
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row col-sm-12">
+    <div class="col-sm-5 offset-sm-4">
+      <button (click)="guardarContent()" type="button">
+        guardar
+      </button>
+    </div>
+  </div>
+</div>

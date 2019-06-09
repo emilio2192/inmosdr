@@ -1,0 +1,6 @@
+<form [formGroup]="form" (ngSubmit)="upload()">
+
+<input type="file" id="file" name="item" 
+(change)="handleFileInput($event)" />
+<button type="submit">Upload</button>
+</form>

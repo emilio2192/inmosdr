@@ -1,0 +1,61 @@
+.login-container{
+    display: flex;              /* establish flex container */
+    flex-direction: column;     /* stack flex items vertically */
+    justify-content: center;    /* center items vertically, in this case */
+    align-items: center;        /* center items horizontally, in this case */
+    height: 100vh;
+    width: 100%;
+}
+
+.box-login{
+    width: 400px;
+    margin: 5px;
+    height: 200px;
+    text-align: center;
+    border:1px solid #a1a1a1;
+    border-radius: 10px;
+    background:#e6e6e6;
+}
+
+.row{
+    clear: both;
+    width: 100%;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+input{
+    width: 85%;
+    padding:10px;
+    border:none;
+    background:white;
+    text-align: center;
+}
+
+button{
+    margin-top:10px;
+    padding:5px;
+    color:white;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 8px;
+    border:none;
+    background: rgba(255,175,75,1);
+    background: -moz-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,175,75,1)), color-stop(100%, rgba(255,146,10,1)));
+    background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+    background: linear-gradient(to right, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a', GradientType=1 );
+}
+
+button:hover{
+    -webkit-box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.74);
+    -moz-box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.74);
+    box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.74);
+}
+
+.error{
+    color:red;
+}
