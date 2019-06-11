@@ -21,6 +21,8 @@ import { UploadfyComponent } from './backend/uploadfy/uploadfy.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RequestService } from './request.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PropertiesComponent } from './backend/cms/properties/properties.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CmsComponent,
     DashboardComponent,
     HomeComponent,
-    UploadfyComponent
+    UploadfyComponent,
+    PropertiesComponent,
+
   ],
   imports: [
     BrowserModule,
