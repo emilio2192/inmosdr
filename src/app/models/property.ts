@@ -12,4 +12,5 @@ export interface Property {
   length: number;
   gallery: Array<string>;
   isEnable: string;
+  promotion: string;
 }

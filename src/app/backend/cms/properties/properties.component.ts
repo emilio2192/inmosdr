@@ -49,6 +49,7 @@ export class PropertiesComponent implements OnInit {
         this.property.gallery = [];
         this.property.currency = this.currency;
         this.property.isEnable = 'true';
+        this.property.promotion = 'false';
         this.copyPropertyEmpty = {...this.property};
     }
 
