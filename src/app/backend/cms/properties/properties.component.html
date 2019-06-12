@@ -11,7 +11,6 @@
         </select>
     </mat-form-field>
 </div>
-
 <div class="row col-sm-12">
     <div class="col-sm-12">
         <h3>Campos</h3>
@@ -101,12 +100,10 @@
         </div>
         <div class="col-sm-5 pull-left" *ngIf="ubicacion=='existente'">
             <mat-form-field class="full-width">
-                <mat-label>Tipo Propiedad</mat-label>
-                <select matNativeControl required>
-                    <option value="apartamento">Apartamento</option>
-                    <option value="casa">Cassa</option>
-                    <option value="oficina">Oficina</option>
-                    <option value="terreno">Terreno</option>
+                <mat-label>Ubicación</mat-label>
+                <select matNativeControl required [(ngModel)]="property.location">
+                    <option *ngFor="let location of locations;" value="{{location}}">{{location}}</option>
+
                 </select>
             </mat-form-field>
         </div>
@@ -139,7 +136,7 @@
         <div class="col-sm-2 galler-item" *ngFor="let item of property.gallery; let i = index">
             <mat-card>
                 <mat-card-header>
-                    <mat-card-title>Imagen {{i+1}}</mat-card-title>
+                    <mat-card-title>Imagen {{i + 1}}</mat-card-title>
                 </mat-card-header>
                 <img mat-card-image src="http://localhost/sdr/{{item}}" alt="Image">
                 <mat-card-content>
@@ -156,6 +153,4 @@
             GUARDAR
         </button>
     </div>
-
-
 </div>

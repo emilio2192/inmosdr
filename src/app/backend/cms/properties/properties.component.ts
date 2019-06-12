@@ -37,7 +37,8 @@ export class PropertiesComponent implements OnInit {
                     this.properties.push({id: item.payload.doc.id, data: response});
                     // @ts-ignore
                     if (!this.locations.includes(response.location)) {
-
+                        // @ts-ignore
+                        this.locations.push(response.location);
                     }
                     console.log('propiedades', this.properties);
                 });
@@ -45,7 +46,7 @@ export class PropertiesComponent implements OnInit {
         });
 
 
-        this.property.gallery = this.gallery;
+        this.property.gallery = [];
         this.property.currency = this.currency;
         this.property.isEnable = 'true';
         this.copyPropertyEmpty = {...this.property};
@@ -75,12 +76,10 @@ export class PropertiesComponent implements OnInit {
 
         if (this.propertyDocumentId === '-1') {
             this.firebaseService.getCollection().collection('properties').add(this.property);
-            console.log('property', this.property);
+            window.location.reload();
         } else {
-            console.log('adentro');
             console.log(this.firebaseService.getCollection().collection('properties').doc(this.propertyDocumentId).set(this.property));
-            console.log(this.property);
-            // window.location.reload();
+            window.location.reload();
         }
 
     };
@@ -93,7 +92,6 @@ export class PropertiesComponent implements OnInit {
         }
         const element = this.properties.filter(element => element.id === this.propertyDocumentId);
         this.property = element[0].data;
-        console.log(element[0]);
     };
 
     deleteImage = (index) => {
