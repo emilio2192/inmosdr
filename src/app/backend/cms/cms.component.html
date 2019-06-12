@@ -1,5 +1,5 @@
 <mat-drawer-container class="col-sm-12 container"  autosize>
-    <mat-drawer #drawer class="col-sm-3" style="float:left;background:white;" mode="side" opened>
+    <mat-drawer #drawer class="col-sm-3" style="float:left;background:white;height: 100vh" mode="side" opened>
       <a href="/cms/dashboard">
           <img src="../../../assets/logo.jpg" style="max-width:100%; float:left;" />
       </a>
@@ -17,7 +17,7 @@
         </li>
       </ul>
     </mat-drawer>
-    <div class="content col-sm-12" style="float:left;height: 100vh;background:red">
+    <div class="content col-sm-11" style="float:left;min-height: 100vh;">
         <router-outlet></router-outlet>
     </div>
 </mat-drawer-container>

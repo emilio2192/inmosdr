@@ -47,7 +47,6 @@ export class UploadfyComponent implements OnInit {
 
     handleFileInput(event) {
         if (event.target.files.length > 0) {
-            console.log('dslkadjas');
             const file = event.target.files[0];
             this.form.get('item').setValue(file);
         }
