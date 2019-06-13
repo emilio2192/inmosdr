@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RequestService } from './request.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PropertiesComponent } from './backend/cms/properties/properties.component';
+import { AboutUsComponent } from './backend/cms/about-us/about-us.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { PropertiesComponent } from './backend/cms/properties/properties.compone
     HomeComponent,
     UploadfyComponent,
     PropertiesComponent,
+    AboutUsComponent,
 
   ],
   imports: [

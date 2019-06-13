@@ -1,0 +1,23 @@
+.full-width{
+    width:100%;
+}
+
+.bordered{
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    padding: 5px;
+    margin-left: 0px;
+    margin-top: 15px;
+}
+.pull-right{
+    float:right;
+}
+.padding-both{
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+.card{
+    margin-top:15px;
+    margin-bottom:15px;
+}

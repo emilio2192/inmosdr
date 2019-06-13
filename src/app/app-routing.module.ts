@@ -6,6 +6,7 @@ import {CmsComponent} from './backend/cms/cms.component';
 import {DashboardComponent} from './backend/cms/dashboard/dashboard.component';
 import {HomeComponent} from './backend/cms/home/home.component';
 import {PropertiesComponent} from './backend/cms/properties/properties.component';
+import {AboutUsComponent} from './backend/cms/about-us/about-us.component';
 
 const routes: Routes = [
     {
@@ -19,7 +20,8 @@ const routes: Routes = [
         children: [
             {path: 'dashboard', component: DashboardComponent},
             {path: 'home', component: HomeComponent},
-            {path: 'properties', component: PropertiesComponent}
+            {path: 'properties', component: PropertiesComponent},
+            {path: 'nosotros', component: AboutUsComponent}
         ]
     }
 

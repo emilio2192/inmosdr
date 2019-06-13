@@ -1,21 +1,26 @@
-<mat-drawer-container class="col-sm-12 container"  autosize>
+<mat-drawer-container class="col-sm-12 container" autosize>
     <mat-drawer #drawer class="col-sm-3" style="float:left;background:white;height: 100vh" mode="side" opened>
-      <a href="/cms/dashboard">
-          <img src="../../../assets/logo.jpg" style="max-width:100%; float:left;" />
-      </a>
-      
-      <ul class="col-sm-12 menu">
-        <li>
-          <a href="/cms/home">
-            Home Page
-          </a>
-        </li>
-        <li>
-          <a href="/cms/properties">
-            Propiedades
-          </a>
-        </li>
-      </ul>
+        <a href="/cms/dashboard">
+            <img src="../../../assets/logo.jpg" style="max-width:100%; float:left;"/>
+        </a>
+
+        <ul class="col-sm-12 menu">
+            <li>
+                <a href="/cms/home">
+                    Home Page
+                </a>
+            </li>
+            <li>
+                <a href="/cms/properties">
+                    Propiedades
+                </a>
+            </li>
+            <li>
+                <a href="/cms/nosotros">
+                    Acerca de nosotros
+                </a>
+            </li>
+        </ul>
     </mat-drawer>
     <div class="content col-sm-11" style="float:left;min-height: 100vh;">
         <router-outlet></router-outlet>
