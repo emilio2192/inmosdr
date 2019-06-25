@@ -21,24 +21,24 @@
         </mat-form-field>
     </div>
     <div class="col-sm-12">
-        <button class="pull-right" mat-stroked-button color="primary">GUARDAR</button>
+        <button class="pull-right" (click)="crear()" mat-stroked-button color="primary">GUARDAR</button>
     </div>
 </div>
 <div class="col-sm-12 padding-both" *ngIf="expanded">
     <mat-divider></mat-divider>
 </div>
-<div class="row col-sm-12 card" *ngFor="let item of [0,1,2,3]">
+<div class="row col-sm-12 card" *ngFor="let topin of topins">
     <mat-card class="full-width">
         <mat-card-header>
 
             <div class="col-sm-7">
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="titulo" type="text" required>
+                    <input matInput placeholder="titulo" [(ngModel)]="topin.data.title" type="text" required>
                 </mat-form-field>
             </div>
             <div class="col-sm-3">
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="orden" type="number" required>
+                    <input matInput placeholder="orden" [(ngModel)]="topin.data.order" type="number" required>
                 </mat-form-field>
             </div>
 
@@ -46,14 +46,14 @@
         <mat-card-content>
             <div class="col-sm-12">
                 <mat-form-field class="full-width">
-                    <textarea matInput placeholder="Contenido"></textarea>
+                    <textarea matInput [(ngModel)]="topin.data.content"  placeholder="Contenido"></textarea>
                 </mat-form-field>
             </div>
         </mat-card-content>
         <mat-card-actions>
             <div class="col-sm-12">
-                <button mat-stroked-button color="primary" class="pull-right">EDITAR</button>
-                <button mat-stroked-button color="warn" class="pull-right">ELIMINAR</button>
+                <button mat-stroked-button color="primary" (click)="edit(topin)" class="pull-right">EDITAR</button>
+                <button mat-stroked-button color="warn" (click)="delete(topin.id)" class="pull-right">ELIMINAR</button>
             </div>
         </mat-card-actions>
     </mat-card>
