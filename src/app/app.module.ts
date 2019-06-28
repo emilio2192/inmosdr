@@ -23,6 +23,11 @@ import { RequestService } from './request.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PropertiesComponent } from './backend/cms/properties/properties.component';
 import { AboutUsComponent } from './backend/cms/about-us/about-us.component';
+import { HeaderComponent } from './frontend/components/header/header.component';
+import { LandingComponent } from './frontend/pages/landing/landing.component';
+import { SearchComponent } from './frontend/pages/search/search.component';
+import { SearchingComponent } from './frontend/components/searching/searching.component';
+import { GridDesktopComponent } from './frontend/components/grid-desktop/grid-desktop.component';
 
 
 @NgModule({
@@ -36,6 +41,11 @@ import { AboutUsComponent } from './backend/cms/about-us/about-us.component';
     UploadfyComponent,
     PropertiesComponent,
     AboutUsComponent,
+    HeaderComponent,
+    LandingComponent,
+    SearchComponent,
+    SearchingComponent,
+    GridDesktopComponent,
 
   ],
   imports: [

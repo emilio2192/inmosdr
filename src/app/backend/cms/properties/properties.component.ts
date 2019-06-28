@@ -76,8 +76,8 @@ export class PropertiesComponent implements OnInit {
     save = () => {
 
         if (this.propertyDocumentId === '-1') {
-            this.firebaseService.getCollection().collection('properties').add(this.property);
-            window.location.reload();
+            console.log(this.firebaseService.getCollection().collection('properties').add(this.property));
+            // window.location.reload();
         } else {
             console.log(this.firebaseService.getCollection().collection('properties').doc(this.propertyDocumentId).set(this.property));
             window.location.reload();

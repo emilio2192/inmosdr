@@ -1,0 +1,61 @@
+body{
+    padding:0;
+    margin:0;
+}
+.header{
+    float:left;
+    width:100vw;
+    min-height: 10vh;
+    height: auto;
+    padding-bottom:10px;
+    position:relative;
+
+}
+
+.social-media{
+    float:left;
+    width:100vw;
+}
+.contact{
+    float:left;
+    margin-left: 10px;
+    width:35vw;
+    font-weight: 900;
+    color:white;
+    text-align:left;
+}
+.contact > a{
+    text-decoration: none;
+    text-shadow: 0px 0px 2px #000;
+    color:white;
+    font-size:14px;
+}
+.logo{
+    float:left;
+    width:30vw;
+    margin-top:10px;
+    margin-left: 10px;
+    height: 100px;
+    background-color:#fff;
+}
+.menu-desktop{
+    position:absolute;
+    bottom:0;
+    right: 50px;
+}
+.menu-desktop > ul{
+    list-style: none;
+    float:left;
+    margin:0;
+    padding:0;
+}
+.menu-desktop > ul > li{
+    float:left;
+}
+.menu-desktop > ul > li > a {
+    text-decoration:none;
+    color:white;
+    text-shadow: 0px 0px 2px #000;
+    font-size:18px;
+    font-weight: 900;
+}

@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="search-container">
+    <div class="inputs-container">
+        <!-- tipo de propiedad -->
+        <div class="dropdown">
+            <div class="label-dropdown">
+                {{(typeSelected=='default')? 'tipo de propiedad' : typeSelected}}
+            </div>
+            <div class="expanded-dropdown">
+                <div class="item-dropdown" *ngFor="let item of typeProperties" (click)="typeSelected=item">
+                    {{item}}
+                </div>
+            </div>
+        </div>
+        <!-- tipo de operacion -->
+        <div class="dropdown middle-dropdown">
+            <div class="label-dropdown">
+                {{(operationSelected=='default')? 'tipo de operacion' : operationSelected }}
+            </div>
+            <div class="expanded-dropdown">
+                <div class="item-dropdown" *ngFor="let item of operations" (click)="operationSelected=item" >
+                    {{item}}
+                </div>
+            </div>
+        </div>
+        <!-- ubicacion -->
+        <input type="text" class="ubicacion" placeholder="ubicacion (zona 10)" (change)="setZone($event)">
+        <!-- buscar -->
+        <button class="search last-dropdown" (click)="search()">
+            BUSCAR
+        </button>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="grid-container">
+  <div class="property" *ngFor="let property of properties">
+    <div class="thumbnail" [style.background-image]="'url(http://localhost/sdr/'+property.data.gallery[0]+')'"></div>
+    <div class="description">
+      <div class="type">{{property.data.propertyType}}</div>
+      <div class="operation">{{property.data.operationType}}</div>
+    </div>
+    <div class="title">{{property.data.title}}</div>
+    <div class="amenities">
+      {{property.data.rooms}}h {{property.data.bathroom}}b {{property.data.parking}}
+    </div>
+    <div class="action">
+      <button class="btn">
+        DETALLES
+      </button>
+    </div>
+  </div>
+</div>

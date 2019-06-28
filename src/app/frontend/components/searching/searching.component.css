@@ -1,0 +1,10 @@
+.searching-container-desktop {
+    float: left;
+    width: 20vw;
+    height: 60vh;
+    /*border: 1px solid #a1a1a1;*/
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 3px #000;
+    margin-left: 10px;
+}
