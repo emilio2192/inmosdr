@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, FormControl} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {RequestService} from '../../../request.service';
 import {Location} from '@angular/common';
 import {FirebaseService} from '../../../firebase.service';
@@ -24,7 +24,7 @@ export class PropertiesComponent implements OnInit {
     currency = '$';
     properties: Array<any> = [];
     copyPropertyEmpty: Property = {} as Property;
-    locations= [];
+    locations = [];
 
     async ngOnInit() {
         this.form = this.formBuilder.group({
@@ -96,7 +96,9 @@ export class PropertiesComponent implements OnInit {
     };
 
     deleteImage = (index) => {
+        console.log('---', this.property.gallery, index);
         this.property.gallery = this.property.gallery.splice(index, 1);
+        console.log(this.property.gallery);
     };
 
 }

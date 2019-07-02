@@ -9,10 +9,12 @@ import {PropertiesComponent} from './backend/cms/properties/properties.component
 import {AboutUsComponent} from './backend/cms/about-us/about-us.component';
 import {LandingComponent} from './frontend/pages/landing/landing.component';
 import {SearchComponent} from './frontend/pages/search/search.component';
+import {PropertyComponent} from './frontend/pages/property/property.component';
 
 const routes: Routes = [
     {path: '', component: LandingComponent},
     {path: 'search/:type/:operation', component: SearchComponent},
+    {path: 'propiedad/:title/:id', component: PropertyComponent},
     {
         path: 'backend', component: BackendComponent,
         children: [

@@ -1,6 +1,6 @@
 <div class="grid-container">
   <div class="property" *ngFor="let property of properties">
-    <div class="thumbnail" [style.background-image]="'url(http://localhost/sdr/'+property.data.gallery[0]+')'"></div>
+    <div class="thumbnail" (click)="redirectProperty(property.data.title, property.id)" [style.background-image]="'url(http://localhost/sdr/'+property.data.gallery[0]+')'"></div>
     <div class="description">
       <div class="type">{{property.data.propertyType}}</div>
       <div class="operation">{{property.data.operationType}}</div>
@@ -10,7 +10,7 @@
       {{property.data.rooms}}h {{property.data.bathroom}}b {{property.data.parking}}
     </div>
     <div class="action">
-      <button class="btn">
+      <button class="btn" (click)="redirectProperty(property.data.title, property.id)">
         DETALLES
       </button>
     </div>

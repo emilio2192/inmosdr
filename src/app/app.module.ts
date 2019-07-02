@@ -28,6 +28,7 @@ import { LandingComponent } from './frontend/pages/landing/landing.component';
 import { SearchComponent } from './frontend/pages/search/search.component';
 import { SearchingComponent } from './frontend/components/searching/searching.component';
 import { GridDesktopComponent } from './frontend/components/grid-desktop/grid-desktop.component';
+import { PropertyComponent } from './frontend/pages/property/property.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { GridDesktopComponent } from './frontend/components/grid-desktop/grid-de
     SearchComponent,
     SearchingComponent,
     GridDesktopComponent,
+    PropertyComponent,
 
   ],
   imports: [

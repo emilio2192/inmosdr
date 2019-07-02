@@ -47,7 +47,7 @@ export class LandingComponent implements OnInit {
     };
 
     search = () => {
-        console.log(this.typeSelected, '---', this.operationSelected, '****', this.zone);
+
         this.zone = this.zone.replace(' ', '_');
         const url = '/search/' + this.typeSelected + '/' + this.operationSelected + '?zona=' + this.zone;
         window.location.href = url;
