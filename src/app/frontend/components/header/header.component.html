@@ -1,4 +1,4 @@
-<nav class="header">
+<nav class="header" [ngClass]="{'header-pages': changeHeader }">
   <div class="social-media">
     <div class="contact">
       <a href="mailto:info@inmobiliariasdr.com">info@inmobiliariasdr.com</a> |
@@ -8,11 +8,19 @@
   <div class="menu-desktop">
     <ul>
       <li>
-        <a href="#">home</a>
+        <a href="/">inicio</a>
+      </li>
+      <li>
+          <a href="/quienes-somos">quienes somos</a>
+      </li>
+      <li>
+          <a href="/contacto">contactanos</a>
       </li>
     </ul>
   </div>
   <div class="logo">
-
+    <a href="/">
+      <img src="./assets/logo.jpg" alt="logo">
+    </a>
   </div>
 </nav>

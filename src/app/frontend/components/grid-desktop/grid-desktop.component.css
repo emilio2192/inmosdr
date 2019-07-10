@@ -12,7 +12,7 @@
 .property{
     float: left;
     width: 20vw;
-    height: 40vh;
+    height: 320px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 3px #a1a1a1;
@@ -66,7 +66,7 @@
     float:right;
     background:white;
     color:#a1a1a1;
-    border:1px solid aqua;
+    border:1px solid #74D4E1;
     border-radius:5px;
     font-size:18px;
     margin-right: 10px;
@@ -74,5 +74,5 @@
 }
 .property .action .btn:hover{
     border:1px solid #a1a1a1;
-    color: aqua;
+    color: #74D4E1;
 }

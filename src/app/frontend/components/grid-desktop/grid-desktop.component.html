@@ -7,7 +7,9 @@
     </div>
     <div class="title">{{property.data.title}}</div>
     <div class="amenities">
-      {{property.data.rooms}}h {{property.data.bathroom}}b {{property.data.parking}}
+      {{property.data.rooms}}&nbsp;<fa-icon [icon]="['fas', 'bed']"></fa-icon>&nbsp;
+      {{property.data.bathroom}}&nbsp;<fa-icon [icon]="['fas', 'bath']"></fa-icon>&nbsp;  
+      {{property.data.parking}}&nbsp;<fa-icon [icon]="['fas', 'car']"></fa-icon>&nbsp; 
     </div>
     <div class="action">
       <button class="btn" (click)="redirectProperty(property.data.title, property.id)">

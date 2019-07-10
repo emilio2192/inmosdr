@@ -29,6 +29,15 @@ import { SearchComponent } from './frontend/pages/search/search.component';
 import { SearchingComponent } from './frontend/components/searching/searching.component';
 import { GridDesktopComponent } from './frontend/components/grid-desktop/grid-desktop.component';
 import { PropertyComponent } from './frontend/pages/property/property.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import {SlideshowModule} from 'ng-simple-slideshow';
+import { AcercaDeComponent } from './frontend/pages/acerca-de/acerca-de.component';
+import { ContactoComponent } from './frontend/pages/contacto/contacto.component';
+
+
 
 
 @NgModule({
@@ -48,6 +57,8 @@ import { PropertyComponent } from './frontend/pages/property/property.component'
     SearchingComponent,
     GridDesktopComponent,
     PropertyComponent,
+    AcercaDeComponent,
+    ContactoComponent
 
   ],
   imports: [
@@ -61,9 +72,17 @@ import { PropertyComponent } from './frontend/pages/property/property.component'
     MaterialModule,
     MatFileUploadModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule,
+    FontAwesomeModule,
+    SlideshowModule
   ],
   providers: [FirebaseService, RequestService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    library.add(fas);
+  }
+
+}

@@ -1,0 +1,60 @@
+h1{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom:20px;
+}
+
+.frm-contacto{
+    padding:15px;
+    border-radius: 10px;
+    border:1px solid #a1a1a1;
+    float:left;
+    width:90%;
+    margin-left:5%;
+}
+input{
+    float: left;
+    width: 100%;
+    border:none;
+    border-bottom: 1px solid #a1a1a1;
+    outline-width: 0px;
+    padding:15px;
+    text-align: center;
+    font-size:18px;
+}
+
+textarea{
+    float: left;
+    width: 100%;
+    padding: 15px;
+    border:1px solid #a1a1a1;
+    border-radius: 10px;
+    margin-top:20px;
+    outline-width: 0px;
+    font-size:18px;
+}
+input:focus {
+    border-bottom:1px solid #74D4E1;
+}
+textarea:focus{
+    border:1px solid #74D4E1;
+}
+
+button{
+    float: right;
+    padding:10px;
+    border:1px solid #a1a1a1;
+    color: #74D4E1;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: white;
+    margin-top:15px;
+    cursor: pointer;
+}
+button:hover{
+    border:2px solid #74D4E1;
+    color:#a1a1a1;
+}

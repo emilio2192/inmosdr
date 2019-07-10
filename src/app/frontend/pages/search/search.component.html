@@ -1,3 +1,41 @@
 <app-header></app-header>
-<app-searching></app-searching>
+<div class="searching-container-desktop">
+    <div class="option-row">
+        <div class="select">
+            <select [(ngModel)]="typeProperty">
+                <option value="default">Tipo de Propiedad</option>
+                <option *ngFor="let type of typeProperties" value="{{type}}">{{type}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="option-row">
+        <div class="select">
+            <select [(ngModel)]="typeOperation">
+                <option value="default">Tipo de Operacion</option>
+                <option *ngFor="let operation of operations" value="{{operation}}">{{operation}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="option-row">
+        <div class="select">
+            <select [(ngModel)]="zone">
+                <option value="">Ubicacion</option>
+                <option *ngFor="let loc of locations" value="{{loc}}">{{loc}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="option-row">
+        <div class="select">
+            <select [(ngModel)]="currency">
+                <option value="">Moneda</option>
+                <option *ngFor="let coin of coins" value="{{coin}}">{{coin}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="option-row">
+        <input type="text" class="price" placeholder="min" [(ngModel)]="min" />
+        <input type="text" class="price" placeholder="max" [(ngModel)]="max" />
+    </div>
+    
+</div>
 <app-grid-desktop></app-grid-desktop>
