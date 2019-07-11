@@ -97,9 +97,9 @@ export class PropertiesComponent implements OnInit {
     };
 
     deleteImage = (index) => {
-        console.log('---', this.property.gallery, index);
-        this.property.gallery = this.property.gallery.splice(index, 1);
-        console.log(this.property.gallery);
+
+        this.property.gallery.splice(index, 1);
+
     };
 
 }

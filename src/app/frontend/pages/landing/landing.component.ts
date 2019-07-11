@@ -19,11 +19,17 @@ export class LandingComponent implements OnInit {
     zone = '';
 
     ngOnInit() {
-        document.querySelector('body').style.backgroundImage = 'url("//localhost/sdr/uploads/9055295cf99e28efa75.jpg")';
+
         document.querySelector('body').style.backgroundSize = 'cover';
         document.querySelector('body').style.backgroundPosition = 'center';
         document.querySelector('body').style.backgroundRepeat = 'no-repeat';
         document.querySelector('body').style.height = '100vh';
+        this.firebaseService.getCollection().collection('home').valueChanges().subscribe(response => {
+            console.log('home', response);
+
+            // @ts-ignore
+            document.querySelector('body').style.backgroundImage = 'url("//localhost/sdr/' + response[0].imagen + '")';
+        });
         this.firebaseService.getCollection().collection('properties').valueChanges().subscribe(response => {
             response.map(item => {
                 // @ts-ignore

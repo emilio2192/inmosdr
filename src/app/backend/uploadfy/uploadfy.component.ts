@@ -25,7 +25,6 @@ export class UploadfyComponent implements OnInit {
     ngOnInit() {
         console.log('document', this.collection);
         this.firebaseService.getCollection().collection(this.collection).doc(this.documentId).valueChanges().subscribe(res => {
-            console.log('-_-_-', res);
             this.objectDocument = {...res};
         });
 

@@ -32,7 +32,8 @@ export class HomeComponent implements OnInit {
 
     guardarContent = () => {
         const data = {...this.content, content: this.contentText};
-        this.firebaseService.getCollection().collection(this.collection).doc(this.documentId).set(data);
+        console.log('content', data);
+        console.log(this.firebaseService.getCollection().collection(this.collection).doc(this.documentId).set(data));
     }
 
 }

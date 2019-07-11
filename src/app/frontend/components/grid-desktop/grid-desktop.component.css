@@ -76,3 +76,11 @@
     border:1px solid #a1a1a1;
     color: #74D4E1;
 }
+
+.price{
+    float:right;
+    margin-top:10px;
+    margin-right: 10px;
+    color:white;
+    text-shadow: #000 0px 0px 2px;
+}

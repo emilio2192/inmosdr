@@ -1,7 +1,7 @@
 .searching-container-desktop {
     float: left;
     width: 20vw;
-    height: 60vh;
+    height: auto;
     /*border: 1px solid #a1a1a1;*/
     border-radius: 10px;
     margin-top: 20px;
@@ -9,49 +9,69 @@
     margin-left: 10px;
 }
 
-.option-row{
-    float:left;
+.option-row {
+    float: left;
     width: 90%;
-    margin-left:2.5%;
-    margin-top:15px;
+    margin-left: 2.5%;
+    margin-top: 15px;
 }
+
 .select {
     position: relative;
     border: 1px solid #ccc;
     width: 100%;
     overflow: hidden;
     background-color: #fff;
-  }
-    
-  .select:before {
-      content: '';
-      position: absolute;
-      right: 5px;
-      top: 7px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 7px 5px 0 5px;
-      border-color: #000000 transparent transparent transparent;
-      z-index: 5;
-      pointer-events: none;
-  }
-    
-  .select select {
-      padding: 5px 8px;
-      width: 130%;
-      border: none;
-      box-shadow: none;
-      background-color: transparent;
-      background-image: none;
-      appearance: none;
-  }
+}
 
-.price{
+.select:before {
+    content: '';
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 5px 0 5px;
+    border-color: #000000 transparent transparent transparent;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.select select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    appearance: none;
+}
+
+.price {
     float: left;
-    width:40%;
-    margin:15px;
-    border:none;
+    width: 40%;
+    margin: 15px;
+    border: none;
     border-bottom: 1px solid black;
     outline-width: 0px;
+}
+
+.search {
+    float: right;
+    padding: 10px;
+    border: 1px solid #a1a1a1;
+    color: #74D4E1;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 15px;
+    cursor: pointer;
+    margin-bottom:15px;
+}
+
+.search:hover {
+    border: 2px solid #74D4E1;
+    color: #a1a1a1;
 }

@@ -33,9 +33,16 @@
         </div>
     </div>
     <div class="option-row">
-        <input type="text" class="price" placeholder="min" [(ngModel)]="min" />
-        <input type="text" class="price" placeholder="max" [(ngModel)]="max" />
+        <input type="text" class="price" placeholder="min" [(ngModel)]="min"/>
+        <input type="text" class="price" placeholder="max" [(ngModel)]="max"/>
     </div>
-    
+
 </div>
-<app-grid-desktop></app-grid-desktop>
+<app-grid-desktop
+        [typeProperty]="typeProperty"
+        [operationType]="typeOperation"
+        [currency]="currency"
+        [location]="zone"
+        [minPrice]="min"
+        [maxPrice]="max"
+></app-grid-desktop>
