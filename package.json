@@ -29,6 +29,7 @@
     "angular-material-fileupload": "^2.0.0",
     "firebase": "^6.1.0",
     "lodash": "^4.17.14",
+    "moment": "^2.24.0",
     "ng-simple-slideshow": "^1.2.9",
     "ngx-owl-carousel-o": "^1.1.6",
     "rxjs": "~6.5.2",

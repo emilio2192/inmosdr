@@ -10,8 +10,9 @@ import {AboutUsComponent} from './backend/cms/about-us/about-us.component';
 import {LandingComponent} from './frontend/pages/landing/landing.component';
 import {SearchComponent} from './frontend/pages/search/search.component';
 import {PropertyComponent} from './frontend/pages/property/property.component';
-import { AcercaDeComponent } from './frontend/pages/acerca-de/acerca-de.component';
-import { ContactoComponent } from './frontend/pages/contacto/contacto.component';
+import {AcercaDeComponent} from './frontend/pages/acerca-de/acerca-de.component';
+import {ContactoComponent} from './frontend/pages/contacto/contacto.component';
+import {canActivate, loggedIn} from '@angular/fire/auth-guard';
 
 const routes: Routes = [
     {path: '', component: LandingComponent},
@@ -28,10 +29,10 @@ const routes: Routes = [
     {
         path: 'cms', component: CmsComponent,
         children: [
-            {path: 'dashboard', component: DashboardComponent},
-            {path: 'home', component: HomeComponent},
-            {path: 'properties', component: PropertiesComponent},
-            {path: 'nosotros', component: AboutUsComponent}
+            {path: 'dashboard', component: DashboardComponent, ...canActivate(loggedIn)},
+            {path: 'home', component: HomeComponent, ...canActivate(loggedIn)},
+            {path: 'properties', component: PropertiesComponent, ...canActivate(loggedIn)},
+            {path: 'nosotros', component: AboutUsComponent, ...canActivate(loggedIn)}
         ]
     }
 

@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FirebaseService} from '../../../firebase.service';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 
+import * as moment from 'moment';
+
 @Component({
     selector: 'app-property',
     templateUrl: './property.component.html',
@@ -12,6 +14,10 @@ export class PropertyComponent implements OnInit {
     title: string;
     propertyId: string;
     property: any;
+    name: string;
+    phone: string;
+    comment: string;
+    email: string;
     customOptions: OwlOptions = {
         loop: true,
         mouseDrag: true,
@@ -22,7 +28,6 @@ export class PropertyComponent implements OnInit {
         lazyLoad: true,
         rtl: true,
         autoHeight: false,
-        
         navSpeed: 700,
         navText: ['<', '>'],
         responsive: {
@@ -61,5 +66,20 @@ export class PropertyComponent implements OnInit {
             });
         });
     }
+
+    contact = () => {
+        const date = moment().format('D-MM-YYYY');
+
+        const data = {
+            date,
+            name: this.name,
+            email: this.email,
+            phone: this.phone,
+            comment: this.comment,
+            propertyId: this.propertyId
+        };
+        console.log(data);
+        this.firebaseService.getCollection().collection('propertyContacted').add(data);
+    };
 
 }
