@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
     min: number;
     max: number;
 
+
     constructor(private router: Router, private route: ActivatedRoute, private firebaseService: FirebaseService) {
         this.route.params.subscribe(params => {
             this.typeOperation = params.operation;

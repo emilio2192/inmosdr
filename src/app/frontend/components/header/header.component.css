@@ -70,5 +70,24 @@ body{
     font-weight: 900;
 }
 .header-pages{
+
     background-color: #74D4E1;
+}
+.menu-mobie{
+    display: none;
+    color:white;
+    text-shadow:#000 0px 0px 2px ;
+    position :absolute;
+    bottom: 15px;
+    rigth:15px;
+    font-size: 30px;
+    cursor:pointer;
+}
+@media (max-device-width:630px ){
+    .menu-desktop{
+        display:none;
+    }
+    .menu-mobile{
+        display:block;
+    }
 }

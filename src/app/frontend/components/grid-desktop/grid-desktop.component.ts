@@ -18,6 +18,7 @@ export class GridDesktopComponent implements OnInit {
     properties: Array<any> = [];
     typeProperties: Array<any> = [];
     operationProperties = ['alquiler', 'venta'];
+    hosting = '192.168.2.114';
 
     constructor(private firebaseService: FirebaseService) {
 

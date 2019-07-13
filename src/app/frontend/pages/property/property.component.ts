@@ -4,6 +4,7 @@ import {FirebaseService} from '../../../firebase.service';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 
 import * as moment from 'moment';
+import {RequestService} from '../../../request.service';
 
 @Component({
     selector: 'app-property',
@@ -48,7 +49,7 @@ export class PropertyComponent implements OnInit {
         nav: true
     };
 
-    constructor(private router: Router, private route: ActivatedRoute, private firebaseService: FirebaseService) {
+    constructor(private router: Router, private route: ActivatedRoute, private firebaseService: FirebaseService, private request: RequestService) {
         this.route.params.subscribe(params => {
             this.title = params.title;
             this.propertyId = params.id;
@@ -61,7 +62,7 @@ export class PropertyComponent implements OnInit {
             this.property = response;
             // @ts-ignore
             response.gallery.forEach((item, index) => {
-                this.property.gallery[index] = '//localhost/sdr/' + item;
+                this.property.gallery[index] = '//192.168.2.114/sdr/' + item;
                 console.log('item', item, index);
             });
         });
@@ -80,6 +81,16 @@ export class PropertyComponent implements OnInit {
         };
         console.log(data);
         this.firebaseService.getCollection().collection('propertyContacted').add(data);
-    };
+        const mail = {
+            data: {
+                email: this.email,
+                phone: this.phone,
+                name: this.name,
+                url: window.location.href,
+                content: this.comment
+            }
 
+        };
+        this.request.post('http//inmobiliariasr.com/sdr/mail.php', mail);
+    };
 }

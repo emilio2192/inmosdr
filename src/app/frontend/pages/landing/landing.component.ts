@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FirebaseService} from '../../../firebase.service';
 import {Router} from '@angular/router';
 
+
 @Component({
     selector: 'app-landing',
     templateUrl: './landing.component.html',
@@ -26,9 +27,9 @@ export class LandingComponent implements OnInit {
         document.querySelector('body').style.height = '100vh';
         this.firebaseService.getCollection().collection('home').valueChanges().subscribe(response => {
             console.log('home', response);
-
+            const hosting = '192.168.2.114/';
             // @ts-ignore
-            document.querySelector('body').style.backgroundImage = 'url("//localhost/sdr/' + response[0].imagen + '")';
+            document.querySelector('body').style.backgroundImage = `url("//${hosting}sdr/` + response[0].imagen + '")';
         });
         this.firebaseService.getCollection().collection('properties').valueChanges().subscribe(response => {
             response.map(item => {

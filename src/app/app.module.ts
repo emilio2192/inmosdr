@@ -36,7 +36,9 @@ import {SlideshowModule} from 'ng-simple-slideshow';
 import {AcercaDeComponent} from './frontend/pages/acerca-de/acerca-de.component';
 import {ContactoComponent} from './frontend/pages/contacto/contacto.component';
 
+
 import {AngularFireAuthGuard} from '@angular/fire/auth-guard';
+import {DeviceDetectorModule} from 'ngx-device-detector';
 
 @NgModule({
     declarations: [
@@ -74,7 +76,8 @@ import {AngularFireAuthGuard} from '@angular/fire/auth-guard';
         CarouselModule,
         FontAwesomeModule,
         SlideshowModule,
-        FormsModule
+        FormsModule,
+        DeviceDetectorModule.forRoot()
 
     ],
     providers: [FirebaseService, RequestService, AngularFireAuthGuard],
