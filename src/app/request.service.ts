@@ -19,4 +19,8 @@ export class RequestService {
         const headers = new HttpHeaders().set('Content-Type', 'multipart/form-data;');
         return this.http.post('//' + window.location.hostname + '/' + url, body, {});
     }
+    otherPost = (url, body) => {
+        const headers = new HttpHeaders().set('Content-Type', 'application/json;');
+        return this.http.post( url, body, {});
+    }
 }

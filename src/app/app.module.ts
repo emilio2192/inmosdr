@@ -14,7 +14,7 @@ import {CmsComponent} from './backend/cms/cms.component';
 import {DashboardComponent} from './backend/cms/dashboard/dashboard.component';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {FirebaseService} from './firebase.service';
-import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HomeComponent} from './backend/cms/home/home.component';
 import {MatFileUploadModule} from 'angular-material-fileupload';
 import {UploadfyComponent} from './backend/uploadfy/uploadfy.component';
@@ -37,6 +37,8 @@ import {AcercaDeComponent} from './frontend/pages/acerca-de/acerca-de.component'
 import {ContactoComponent} from './frontend/pages/contacto/contacto.component';
 
 import {AngularFireAuthGuard} from '@angular/fire/auth-guard';
+
+import {DeviceDetectorModule} from 'ngx-device-detector';
 
 @NgModule({
     declarations: [
@@ -74,7 +76,8 @@ import {AngularFireAuthGuard} from '@angular/fire/auth-guard';
         CarouselModule,
         FontAwesomeModule,
         SlideshowModule,
-        FormsModule
+        FormsModule,
+        DeviceDetectorModule.forRoot()
 
     ],
     providers: [FirebaseService, RequestService, AngularFireAuthGuard],

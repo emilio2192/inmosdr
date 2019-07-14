@@ -75,3 +75,10 @@
     border: 2px solid #74D4E1;
     color: #a1a1a1;
 }
+
+@media(max-device-width: 630px){
+    .searching-container-desktop{
+        width: 97%;
+    }
+
+}

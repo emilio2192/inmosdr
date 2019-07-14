@@ -4,6 +4,7 @@ import {FirebaseService} from '../../../firebase.service';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 
 import * as moment from 'moment';
+import {RequestService} from '../../../request.service';
 
 @Component({
     selector: 'app-property',
@@ -48,7 +49,8 @@ export class PropertyComponent implements OnInit {
         nav: true
     };
 
-    constructor(private router: Router, private route: ActivatedRoute, private firebaseService: FirebaseService) {
+    // tslint:disable-next-line:max-line-length
+    constructor(private router: Router, private route: ActivatedRoute, private firebaseService: FirebaseService, private request: RequestService) {
         this.route.params.subscribe(params => {
             this.title = params.title;
             this.propertyId = params.id;
@@ -67,7 +69,7 @@ export class PropertyComponent implements OnInit {
         });
     }
 
-    contact = () => {
+    contact = async () => {
         const date = moment().format('D-MM-YYYY');
 
         const data = {
@@ -78,8 +80,19 @@ export class PropertyComponent implements OnInit {
             comment: this.comment,
             propertyId: this.propertyId
         };
-        console.log(data);
-        this.firebaseService.getCollection().collection('propertyContacted').add(data);
-    };
 
+        this.firebaseService.getCollection().collection('propertyContacted').add(data);
+        const mail = {
+            data: {
+                email: this.email,
+                phone: this.phone,
+                name: this.name,
+                url: window.location.href,
+                content: this.comment
+            }
+        };
+        this.request.otherPost('http://inmobiliariasdr.com/sdr/mail.php', mail).subscribe(res => {
+            console.log(res);
+        });
+    };
 }
