@@ -94,5 +94,5 @@ export class PropertyComponent implements OnInit {
         this.request.otherPost('http://inmobiliariasdr.com/sdr/mail.php', mail).subscribe(res => {
             console.log(res);
         });
-    };
+    }
 }

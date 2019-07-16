@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 export class LandingComponent implements OnInit {
 
     constructor(private firebaseService: FirebaseService, private route: Router) {
+
     }
 
     typeProperties: Array<string> = [];
@@ -17,11 +18,16 @@ export class LandingComponent implements OnInit {
     typeSelected = 'default';
     operationSelected = 'default';
     zone = '';
+    isMobile = false;
 
     ngOnInit() {
-
         document.querySelector('body').style.backgroundSize = 'cover';
-        document.querySelector('body').style.backgroundPosition = 'center';
+        if (window.innerWidth > 390) {
+            document.querySelector('body').style.backgroundPosition = 'center';
+        } else {
+            document.querySelector('body').style.backgroundPosition = 'left center';
+        }
+        this.isMobile = window.innerWidth < 390;
         document.querySelector('body').style.backgroundRepeat = 'no-repeat';
         document.querySelector('body').style.height = '100vh';
         this.firebaseService.getCollection().collection('home').valueChanges().subscribe(response => {

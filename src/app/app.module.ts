@@ -16,7 +16,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {FirebaseService} from './firebase.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HomeComponent} from './backend/cms/home/home.component';
-import {MatFileUploadModule} from 'angular-material-fileupload';
+
 import {UploadfyComponent} from './backend/uploadfy/uploadfy.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RequestService} from './request.service';
@@ -70,7 +70,6 @@ import {DeviceDetectorModule} from 'ngx-device-detector';
         AngularFirestoreModule,
         AngularFireAuthModule,
         MaterialModule,
-        MatFileUploadModule,
         HttpClientModule,
         ReactiveFormsModule,
         CarouselModule,
