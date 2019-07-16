@@ -38,7 +38,7 @@ import {ContactoComponent} from './frontend/pages/contacto/contacto.component';
 
 import {AngularFireAuthGuard} from '@angular/fire/auth-guard';
 
-import {DeviceDetectorModule} from 'ngx-device-detector';
+
 
 @NgModule({
     declarations: [
@@ -75,9 +75,7 @@ import {DeviceDetectorModule} from 'ngx-device-detector';
         CarouselModule,
         FontAwesomeModule,
         SlideshowModule,
-        FormsModule,
-        DeviceDetectorModule.forRoot()
-
+        FormsModule
     ],
     providers: [FirebaseService, RequestService, AngularFireAuthGuard],
     bootstrap: [AppComponent]

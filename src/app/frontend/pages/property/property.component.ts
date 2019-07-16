@@ -63,7 +63,7 @@ export class PropertyComponent implements OnInit {
             this.property = response;
             // @ts-ignore
             response.gallery.forEach((item, index) => {
-                this.property.gallery[index] = '//localhost/sdr/' + item;
+                this.property.gallery[index] = '/sdr/' + item;
                 console.log('item', item, index);
             });
         });

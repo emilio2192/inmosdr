@@ -1,6 +1,6 @@
 <div class="grid-container">
   <div class="property" *ngFor="let property of properties">
-    <div class="thumbnail" (click)="redirectProperty(property.data.title, property.id)" [style.background-image]="'url(http://localhost/sdr/'+property.data.gallery[0]+')'">
+    <div class="thumbnail" (click)="redirectProperty(property.data.title, property.id)" [style.background-image]="'url(/sdr/'+property.data.gallery[0]+')'">
       <div class="price">{{property.data.currency}}{{property.data.price}}</div>
     </div>
     <div class="description">

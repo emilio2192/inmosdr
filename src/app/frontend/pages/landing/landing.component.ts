@@ -34,7 +34,7 @@ export class LandingComponent implements OnInit {
             console.log('home', response);
 
             // @ts-ignore
-            document.querySelector('body').style.backgroundImage = 'url("//localhost/sdr/' + response[0].imagen + '")';
+            document.querySelector('body').style.backgroundImage = 'url("/sdr/' + response[0].imagen + '")';
         });
         this.firebaseService.getCollection().collection('properties').valueChanges().subscribe(response => {
             response.map(item => {

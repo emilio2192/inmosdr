@@ -9,7 +9,8 @@ import {FirebaseService} from '../../firebase.service';
     templateUrl: './uploadfy.component.html',
     styleUrls: ['./uploadfy.component.css']
 })
-export class UploadfyComponent implements OnInit {
+export class
+UploadfyComponent implements OnInit {
     @Input() collection: string;
     @Input() documentId: string;
     @Input() attribute: string;

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
-import { DeviceDetectorService } from 'ngx-device-detector';
+
 
 @Component({
     selector: 'app-header',
