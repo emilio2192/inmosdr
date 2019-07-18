@@ -46,3 +46,18 @@
         </button>
     </div>
 </div>
+
+<div class="feature-properties">
+    <div class="container-feature-properties">
+        <div class="property" *ngFor="let item of featureProperties">
+            <div class="photo" [style.background-image]="'url(/sdr/'+item.data.gallery[0]+')'"></div>
+            <div class="description">
+                <div class="title">{{item.data.title}}</div>
+                <a href="{{item.url}}" class="share">
+                    <fa-icon [icon]="['fas', 'share']"></fa-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

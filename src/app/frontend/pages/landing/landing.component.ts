@@ -19,8 +19,9 @@ export class LandingComponent implements OnInit {
     operationSelected = 'default';
     zone = '';
     isMobile = false;
+    featureProperties = [];
 
-    ngOnInit() {
+    async ngOnInit() {
         document.querySelector('body').style.backgroundSize = 'cover';
         if (window.innerWidth > 390) {
             document.querySelector('body').style.backgroundPosition = 'center';
@@ -36,20 +37,31 @@ export class LandingComponent implements OnInit {
             // @ts-ignore
             document.querySelector('body').style.backgroundImage = 'url("/sdr/' + response[0].imagen + '")';
         });
-        this.firebaseService.getCollection().collection('properties').valueChanges().subscribe(response => {
-            response.map(item => {
-                // @ts-ignore
-                if (!this.typeProperties.includes('' + item.propertyType)) {
+        await this.firebaseService.getProperties().snapshotChanges().subscribe(async (res) => {
+            await res.map(item => {
+                // tslint:disable-next-line:max-line-length
+                this.firebaseService.getCollection().collection('properties').doc('' + item.payload.doc.id).valueChanges().subscribe(response => {
                     // @ts-ignore
-                    this.typeProperties.push('' + item.propertyType);
-                }
-                // @ts-ignore
-                if (!this.operations.includes('' + item.operationType)) {
+                    if (!this.typeProperties.includes('' + response.propertyType)) {
+                        // @ts-ignore
+                        this.typeProperties.push('' + response.propertyType);
+                    }
                     // @ts-ignore
-                    this.operations.push('' + item.operationType);
-                }
+                    if (!this.operations.includes('' + response.operationType)) {
+                        // @ts-ignore
+                        this.operations.push('' + response.operationType);
+                    }
+                    // @ts-ignore
+                    if (response.promotion === 'true') {
+                        // @ts-ignore
+                        // tslint:disable-next-line:max-line-length
+                        this.featureProperties.push({id: item.payload.doc.id, data: response, url: '/propiedad/' + response.title.split(' ').join('_') + '/' + item.payload.doc.id});
+                    }
+                });
             });
-        });
+        }, error => console.log(error));
+        this.featureProperties.shift();
+        console.log('--- feature properties ---', this.featureProperties);
         this.typeProperties.shift();
         this.operations.shift();
     }

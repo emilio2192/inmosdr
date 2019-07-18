@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {FirebaseService} from '../../../firebase.service';
 import * as _ from 'lodash';
 import {Property} from '../../../models/property';
@@ -51,6 +51,7 @@ export class GridDesktopComponent implements OnInit {
     // tslint:disable-next-line:use-lifecycle-interface
     ngOnChanges(changes: SimpleChanges) {
         console.log('change detected');
+        // tslint:disable-next-line:forin
         for (let propName in changes) {
             let chng = changes[propName];
             let cur = JSON.stringify(chng.currentValue);
