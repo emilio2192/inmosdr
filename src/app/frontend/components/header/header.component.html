@@ -1,35 +1,40 @@
 <nav class="header" [ngClass]="{'header-pages': changeHeader }">
-    <div class="social-media">
-        <div class="contact">
-            <a href="mailto:info@inmobiliariasdr.com">informacion@inmobiliariasdr.com</a> |
-            <a href="tel:23648022">tel. 23648022</a>
+    <!--    <div class="social-media">-->
+    <!--        <div class="contact">-->
+    <!--            <a href="mailto:info@inmobiliariasdr.com">informacion@inmobiliariasdr.com</a> |-->
+    <!--            <a href="tel:23648022">tel. 23648022</a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+        <div class="menu-desktop">
+            <ul>
+                <li>
+                    <a href="/">inicio</a>
+                </li>
+                <li>
+                    <a href="/quienes-somos">quienes somos</a>
+                </li>
+                <li>
+                    <a href="/contacto">contáctanos</a>
+                </li>
+            </ul>
         </div>
-    </div>
-    <div class="menu-desktop">
-        <ul>
-            <li>
-                <a href="/">inicio</a>
-            </li>
-            <li>
-                <a href="/quienes-somos">quienes somos</a>
-            </li>
-            <li>
-                <a href="/contacto">contáctanos</a>
-            </li>
-        </ul>
-    </div>
-    <div class="menu-mobile" >
-        <fa-icon [icon]="['fas', 'bars']" (click)="expand()"></fa-icon>
-    </div>
     <div class="logo">
         <a href="/">
             <img src="./assets/logo.png" alt="logo">
         </a>
     </div>
+    <div class="info">
+        <a href="mailto:info@inmobiliariasdr.com">informacion@inmobiliariasdr.com</a><br/>
+        <a href="tel:23648022">tel. 23648022</a>
+    </div>
+    <div class="menu-mobile">
+        <fa-icon [icon]="['fas', 'bars']" (click)="expand()"></fa-icon>
+    </div>
+
 </nav>
 <div class="expanded-menu" *ngIf="mobileExpanded">
     <div class="close" (click)="expand()">
-        <fa-icon [icon]="['fas', 'times']" ></fa-icon>
+        <fa-icon [icon]="['fas', 'times']"></fa-icon>
     </div>
     <div class="container">
         <ul>
@@ -41,7 +46,8 @@
             </li>
             <li>
                 <a href="/contacto">contáctanos</a>
-            </li>>
+            </li>
+            >
         </ul>
     </div>
 </div>

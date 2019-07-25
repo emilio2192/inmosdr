@@ -18,13 +18,19 @@ body {
 }
 
 .inputs-container {
+    /*width: 90%;*/
+    /*float: left;*/
+    /*height: 8vh;*/
+    /*z-index: 99;*/
+    /*margin-left: 4vw;*/
+    /*margin-top: 1vh;*/
+    /*border-radius: 10px;*/
     width: 90%;
     float: left;
     height: 8vh;
     z-index: 99;
-    margin-left: 4vw;
-    margin-top: 1vh;
     border-radius: 10px;
+    margin: 15% 5%;
 }
 
 .dropdown {
@@ -152,14 +158,20 @@ body {
 }
 
 .feature-properties {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 30%);
-    width: 80vw;
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, 30%);*/
+    /*width: 80vw;*/
+    /*min-height: 30vh;*/
+    /*float: left;*/
+    /*background-color: rgba(50, 225, 255, .2);*/
+    /*border-radius: 10px;*/
+
+    width: 100vw;
     min-height: 30vh;
     float: left;
-    background-color: rgba(50, 225, 255, .2);
+    /*background-color: rgba(50, 225, 255, .2);*/
     border-radius: 10px;
 }
 
@@ -224,6 +236,112 @@ body {
     margin-top: 2px;
 }
 
+.main-container {
+    float: left;
+    height: 400px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    /*background-color: #74D4E1;*/
+}
+
+.title-feature {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+
+.property {
+    float: left;
+    width: 20vw;
+    height: 320px !important;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px #a1a1a1;
+    padding-bottom: 20px;
+}
+
+.property .thumbnail {
+    float: left;
+    width: 100%;
+    height: 65%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.property .description {
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.property .description .type {
+    float: left;
+    margin-left: 10px;
+}
+
+.property .description .operation {
+    float: right;
+    margin-right: 10px;
+}
+
+.property .title {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #000;
+    padding-left: 10px;
+}
+
+.property .amenities {
+    clear: both;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #000;
+    padding-left: 10px;
+}
+
+.property .action {
+    float: left;
+    width: 100%;
+}
+
+.property .action .btn {
+    float: right;
+    background: white;
+    color: #a1a1a1;
+    border: 1px solid #74D4E1;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.property .action .btn:hover {
+    border: 1px solid #a1a1a1;
+    color: #74D4E1;
+}
+
+.price {
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: white;
+    text-shadow: #000 0px 0px 2px;
+}
+
 
 @media only screen and (max-width: 980px) {
     .label-dropdown {
@@ -263,6 +381,14 @@ body {
     }
 
     .container-feature-properties, .feature-properties {
+        display: none;
+    }
+
+    .title-feature {
+        display: none;
+    }
+
+    .inputs-container {
         display: none;
     }
 }
