@@ -72,6 +72,9 @@ body {
     float: left;
     padding: 15px;
 }
+.menu-desktop > ul > li:hover{
+    border-bottom:2px solid #a1a1a1;
+}
 
 .menu-desktop > ul > li > a {
     text-decoration: none;
@@ -148,5 +151,8 @@ body {
     }
     .social-media > .contact{
         width:100%;
+    }
+    .social-media > div > a{
+        font-size:16px;
     }
 }

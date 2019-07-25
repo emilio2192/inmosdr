@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FirebaseService} from '../../../firebase.service';
 import {Router} from '@angular/router';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-landing',
@@ -24,18 +25,18 @@ export class LandingComponent implements OnInit {
     async ngOnInit() {
         document.querySelector('body').style.backgroundSize = 'cover';
         if (window.innerWidth > 390) {
-            document.querySelector('body').style.backgroundPosition = 'center';
+            document.querySelector('body').style.backgroundPosition = 'center calc(100% - 190px)';
         } else {
-            document.querySelector('body').style.backgroundPosition = 'left center';
+            document.querySelector('body').style.backgroundPosition = '20% 65%';
         }
         this.isMobile = window.innerWidth < 390;
         document.querySelector('body').style.backgroundRepeat = 'no-repeat';
-        document.querySelector('body').style.height = '100vh';
+
         this.firebaseService.getCollection().collection('home').valueChanges().subscribe(response => {
-            console.log('home', response);
+            console.log('home', environment.hostname);
 
             // @ts-ignore
-            document.querySelector('body').style.backgroundImage = 'url("/sdr/' + response[0].imagen + '")';
+            document.querySelector('body').style.backgroundImage = 'url("' + environment.hostname + '/sdr/' + response[0].imagen + '")';
         });
         await this.firebaseService.getProperties().snapshotChanges().subscribe(async (res) => {
             await res.map(item => {
@@ -55,7 +56,12 @@ export class LandingComponent implements OnInit {
                     if (response.promotion === 'true') {
                         // @ts-ignore
                         // tslint:disable-next-line:max-line-length
-                        this.featureProperties.push({id: item.payload.doc.id, data: response, url: '/propiedad/' + response.title.split(' ').join('_') + '/' + item.payload.doc.id});
+                        this.featureProperties.push({
+                            id: item.payload.doc.id,
+                            data: response,
+                            // @ts-ignore
+                            url: '/propiedad/' + response.title.split(' ').join('_') + '/' + item.payload.doc.id
+                        });
                     }
                 });
             });
@@ -68,13 +74,13 @@ export class LandingComponent implements OnInit {
 
     setZone = (event) => {
         this.zone = event.target.value;
-    };
+    }
 
     search = () => {
 
         this.zone = this.zone.replace(' ', '_');
         const url = '/search/' + this.typeSelected + '/' + this.operationSelected + '?zona=' + this.zone;
         window.location.href = url;
-    };
+    }
 
 }

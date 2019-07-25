@@ -32,12 +32,14 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fas} from '@fortawesome/free-solid-svg-icons';
+import {faTwitter, faFacebookSquare} from '@fortawesome/free-brands-svg-icons';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import {AcercaDeComponent} from './frontend/pages/acerca-de/acerca-de.component';
 import {ContactoComponent} from './frontend/pages/contacto/contacto.component';
 
 import {AngularFireAuthGuard} from '@angular/fire/auth-guard';
-
+import {FooterComponent} from './frontend/components/footer/footer.component';
+import { GalleryComponent } from './frontend/components/gallery/gallery.component';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import {AngularFireAuthGuard} from '@angular/fire/auth-guard';
         GridDesktopComponent,
         PropertyComponent,
         AcercaDeComponent,
-        ContactoComponent
+        ContactoComponent,
+        FooterComponent,
+        GalleryComponent
 
     ],
     imports: [
@@ -82,7 +86,7 @@ import {AngularFireAuthGuard} from '@angular/fire/auth-guard';
 })
 export class AppModule {
     constructor() {
-        library.add(fas);
+        library.add(fas, faTwitter, faFacebookSquare);
     }
 
 }

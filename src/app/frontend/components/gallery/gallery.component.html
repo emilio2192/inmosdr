@@ -1,0 +1,10 @@
+<div class="gallery-container">
+    <img src="{{actualItem}}" alt="image" (mouseleave)="start()" (mouseenter)="pause()"/>
+</div>
+<div class="thumbanils-container">
+    <div class="thumbnail" *ngFor="let image of gallery; let i = index"
+         (click)="thumbnail(i)"
+         [style.background-image]="'url('+this.host+image+')'">
+
+    </div>
+</div>

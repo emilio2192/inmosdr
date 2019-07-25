@@ -1,22 +1,26 @@
 <div class="grid-container">
-  <div class="property" *ngFor="let property of properties">
-    <div class="thumbnail" (click)="redirectProperty(property.data.title, property.id)" [style.background-image]="'url(/sdr/'+property.data.gallery[0]+')'">
-      <div class="price">{{property.data.currency}}{{property.data.price}}</div>
+    <div class="property"
+         [ngClass]="{'feature' : property.data.promotion == 'true'}"
+         *ngFor="let property of properties">
+        <div class="thumbnail" (click)="redirectProperty(property.data.title, property.id)"
+             [style.background-image]="'url(http://inmobiliariasdr.com/sdr/'+property.data.gallery[0]+')'">
+            <div class="price">{{property.data.currency}}{{property.data.price}}</div>
+        </div>
+        <div class="description">
+            {{property.promotion}}
+            <div class="type">{{property.data.propertyType}}</div>
+            <div class="operation">{{property.data.operationType}}</div>
+        </div>
+        <div class="title">{{property.data.title}}</div>
+        <div class="amenities">
+            {{property.data.rooms}}&nbsp;<fa-icon [icon]="['fas', 'bed']"></fa-icon>&nbsp;
+            {{property.data.bathroom}}&nbsp;<fa-icon [icon]="['fas', 'bath']"></fa-icon>&nbsp;
+            {{property.data.parking}}&nbsp;<fa-icon [icon]="['fas', 'car']"></fa-icon>&nbsp;
+        </div>
+        <div class="action">
+            <button class="btn" (click)="redirectProperty(property.data.title, property.id)">
+                DETALLES
+            </button>
+        </div>
     </div>
-    <div class="description">
-      <div class="type">{{property.data.propertyType}}</div>
-      <div class="operation">{{property.data.operationType}}</div>
-    </div>
-    <div class="title">{{property.data.title}}</div>
-    <div class="amenities">
-      {{property.data.rooms}}&nbsp;<fa-icon [icon]="['fas', 'bed']"></fa-icon>&nbsp;
-      {{property.data.bathroom}}&nbsp;<fa-icon [icon]="['fas', 'bath']"></fa-icon>&nbsp;  
-      {{property.data.parking}}&nbsp;<fa-icon [icon]="['fas', 'car']"></fa-icon>&nbsp; 
-    </div>
-    <div class="action">
-      <button class="btn" (click)="redirectProperty(property.data.title, property.id)">
-        DETALLES
-      </button>
-    </div>
-  </div>
 </div>

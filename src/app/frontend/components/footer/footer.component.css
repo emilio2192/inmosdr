@@ -1,0 +1,123 @@
+footer{
+    position: absolute;
+    bottom:-50vh;
+    left: 0;
+    width: 100vw;
+    height: 200px;
+    /*background-color:#32E1FF;*/
+    background-color:#74D4E1;
+}
+footer > .social-media{
+    float:left;
+    width: 30vw;
+    height: 100%;
+}
+footer > .social-media > h5{
+    color:white;
+    font-size: 18px;
+    font-weight: 900;
+    float: left;
+    width: 100%;
+}
+footer > .social-media > ul{
+    float:left;
+    list-style: none;
+    margin:0;
+    padding:0;
+    width:100%;
+}
+footer > .social-media > ul > li{
+    float: left;
+    width: 20%;
+    padding-left: 15%;
+}
+footer > .social-media > ul > li > a{
+    color:white;
+    font-size:40px;
+    text-decoration: none;
+}
+footer .contactanos{
+    float:left;
+    width: 40vw;
+    height: 100%;
+}
+footer .contactanos > h5{
+    float: left;
+    width:100%;
+    font-size:20px;
+    font-weight: 900;
+    color:white;
+}
+footer .contactanos > ul{
+    float: left;
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+footer .contactanos > ul > li {
+    float: left;
+    width: 100%;
+}
+footer .contactanos > ul > li > label{
+    float: left;
+    width: 100%;
+    font-size:18px;
+    font-weight: 900;
+    color:white;
+    margin-top:5px;
+}
+footer .contactanos > ul > li > text{
+    float: left;
+    width: 100%;
+    font-size:18px;
+    font-weight: 600;
+}
+footer .camara{
+    float: left;
+    width:30vw;
+    height: 100%;
+}
+footer > div.camara > img{
+    max-height: 100%;
+    float:left;
+}
+
+
+@media only screen and (max-width: 767px) {
+    footer{
+        height: auto;
+        padding-bottom:15px;
+    }
+    footer .camara{
+        width: 100%;
+        height: 200px;
+        text-align:center;
+    }
+    footer .camara > img{
+        margin:0 auto;
+        float:none !important;
+    }
+    footer > .social-media{
+        width: 100%;
+        height: 75px;
+    }
+    footer > .social-media > h5{
+        text-align:center;
+        margin-top:0px;
+        margin-bottom:5px;
+    }
+    footer > div.social-media > ul > li{
+        padding-left: 30%;
+    }
+    footer > div.contactanos {
+        width: 100%;
+    }
+    footer > div.contactanos > h5{
+        margin:0;
+        text-align:center;
+    }
+    footer > div.contactanos > ul > li > label{
+        font-size:16px;
+        text-align:center;
+    }
+}
