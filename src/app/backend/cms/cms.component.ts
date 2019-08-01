@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FirebaseService} from '../../firebase.service';
 
 @Component({
   selector: 'app-cms',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CmsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
+  }
+  logOut = () => {
+    this.firebaseService.logout();
+    window.location.href = `//${window.location.host}/backend/login`;
   }
 
 }

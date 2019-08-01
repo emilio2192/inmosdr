@@ -8,8 +8,11 @@
         <option value="default">Tipo de operación</option>
         <option *ngFor="let item of operations" value="{{item}}">{{item}}</option>
     </select>
-    <input type="text" [(ngModel)]="zone" placeholder="ubicacion (zona 10)"/>
-
+<!--    <input type="text" [(ngModel)]="zone" placeholder="ubicacion (zona 10)"/>-->
+    <select [(ngModel)]="zone">
+        <option value="">Ubicación</option>
+        <option *ngFor="let loc of zones" value="{{loc}}">{{loc}}</option>
+    </select>
     <button class="search " (click)="search()">
         BUSCAR
     </button>
@@ -52,27 +55,38 @@
         <!-- tipo de propiedad -->
         <div class="dropdown">
             <div class="label-dropdown">
-                {{(typeSelected == 'default') ? 'tipo de propiedad' : typeSelected}}
+                {{(typeSelected == 'default') ? 'Tipo de propiedad' : typeSelected}}
             </div>
             <div class="expanded-dropdown">
                 <div class="item-dropdown" *ngFor="let item of typeProperties" (click)="typeSelected=item">
-                    {{item}}
+                    {{item | uppercase}}
                 </div>
             </div>
         </div>
         <!-- tipo de operacion -->
         <div class="dropdown middle-dropdown">
             <div class="label-dropdown">
-                {{(operationSelected == 'default') ? 'tipo de operacion' : operationSelected }}
+                {{(operationSelected == 'default') ? 'Tipo de operación' : operationSelected }}
             </div>
             <div class="expanded-dropdown">
                 <div class="item-dropdown" *ngFor="let item of operations" (click)="operationSelected=item">
-                    {{item}}
+                    {{item | uppercase}}
+                </div>
+            </div>
+        </div>
+        <!-- tipo de operacion -->
+        <div class="dropdown middle-dropdown">
+            <div class="label-dropdown">
+                {{(zone == '') ? 'Ubicación' : zone }}
+            </div>
+            <div class="expanded-dropdown">
+                <div class="item-dropdown" *ngFor="let loc of zones" (click)="zone=loc">
+                    {{loc | uppercase}}
                 </div>
             </div>
         </div>
         <!-- ubicacion -->
-        <input type="text" class="ubicacion" placeholder="ubicacion (zona 10)" (change)="setZone($event)">
+<!--        <input type="text" class="ubicacion" placeholder="ubicacion (zona 10)" (change)="setZone($event)">-->
         <!-- buscar -->
         <button class="search last-dropdown" (click)="search()">
             BUSCAR

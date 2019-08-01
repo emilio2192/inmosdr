@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FirebaseService} from '../../firebase.service';
 import {Location} from '@angular/common';
+import {first} from 'rxjs/operators';
 
 @Component({
     selector: 'app-login',
@@ -17,7 +18,11 @@ export class LoginComponent implements OnInit {
     password: string;
     loginRequest: any;
 
-    ngOnInit() {
+    async ngOnInit() {
+        console.log('auth ' );
+        await this.firebase.getAuth().authState.pipe(first()).toPromise().then(res => {
+           console.log(res);
+        });
     }
 
     login = async () => {

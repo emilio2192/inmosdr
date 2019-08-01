@@ -18,28 +18,17 @@ export class LandingComponent implements OnInit {
     operations: Array<string> = [];
     typeSelected = 'default';
     operationSelected = 'default';
+    zones: Array<string> = [];
     zone = '';
-    isMobile = false;
     featureProperties = [];
     backgroundImage: string;
 
     async ngOnInit() {
-        // document.querySelector('body').style.backgroundSize = 'cover';
-        // if (window.innerWidth > 390) {
-        //     document.querySelector('body').style.backgroundPosition = 'center calc(100% - 190px)';
-        // } else {
-        //     document.querySelector('body').style.backgroundPosition = '20% 65%';
-        // }
-        // this.isMobile = window.innerWidth < 390;
-        // document.querySelector('body').style.backgroundRepeat = 'no-repeat';
-        //
         document.querySelector('body').style.height = '165vh';
         document.querySelector('footer').style.bottom = '-65vh';
         this.firebaseService.getCollection().collection('home').valueChanges().subscribe(response => {
-
-
             // @ts-ignore
-            this.backgroundImage = environment.hostname + '/sdr/' + response[0].imagen;
+            this.backgroundImage =  '/sdr/' + response[0].imagen;
             console.log(this.backgroundImage);
         });
         await this.firebaseService.getProperties().snapshotChanges().subscribe(async (res) => {
@@ -57,6 +46,11 @@ export class LandingComponent implements OnInit {
                         this.operations.push('' + response.operationType);
                     }
                     // @ts-ignore
+                    if (!this.zones.includes('' + response.location)) {
+                        // @ts-ignore
+                        this.zones.push('' + response.location);
+                    }
+                    // @ts-ignore
                     if (response.promotion === 'true') {
                         // @ts-ignore
                         // tslint:disable-next-line:max-line-length
@@ -71,7 +65,7 @@ export class LandingComponent implements OnInit {
             });
         }, error => console.log(error));
         this.featureProperties.shift();
-        console.log('--- feature properties ---', this.featureProperties);
+        this.zones.shift();
         this.typeProperties.shift();
         this.operations.shift();
     }

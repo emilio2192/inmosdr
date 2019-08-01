@@ -27,6 +27,24 @@
     background-position:center center;
     background-repeat: no-repeat;
 }
+.thumbnail.active{
+    box-shadow: #000 0px 0px 10px;
+}
+.flag{
+    margin-top:13%;
+    color:white;
+    text-shadow: #000 0px 0px 10px;
+    font-size:50px;
+    cursor:pointer;
+}
+.left{
+    float:left;
+    margin-left: 15px;
+}
+.right{
+    float:right;
+    margin-right:15px;
+}
 
 @media only screen and (max-width: 767px) {
     .gallery-container{

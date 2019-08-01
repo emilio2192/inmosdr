@@ -28,8 +28,8 @@ footer > .social-media > ul{
 }
 footer > .social-media > ul > li{
     float: left;
-    width: 20%;
-    padding-left: 15%;
+    width:15%;
+    padding-left: 0%;
 }
 footer > .social-media > ul > li > a{
     color:white;
@@ -119,5 +119,11 @@ footer > div.camara > img{
     footer > div.contactanos > ul > li > label{
         font-size:16px;
         text-align:center;
+    }
+}
+
+@media only screen and (max-width: 321px){
+    .social-media > ul > li{
+        padding-left: 18% !important;
     }
 }

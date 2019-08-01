@@ -1,9 +1,16 @@
 <div class="gallery-container">
     <img src="{{actualItem}}" alt="image" (mouseleave)="start()" (mouseenter)="pause()"/>
+    <div class="flag left" (click)="prev()">
+        <fa-icon [icon]="['fa', 'chevron-left']"></fa-icon>
+    </div>
+    <div class="flag right" (click)="next()">
+        <fa-icon [icon]="['fa', 'chevron-right']"></fa-icon>
+    </div>
 </div>
 <div class="thumbanils-container">
     <div class="thumbnail" *ngFor="let image of gallery; let i = index"
          (click)="thumbnail(i)"
+         [ngClass]="{'active': actualIndex==i}"
          [style.background-image]="'url('+this.host+image+')'">
 
     </div>

@@ -32,8 +32,9 @@ export class PropertiesComponent implements OnInit {
         });
         await this.firebaseService.getProperties().snapshotChanges().subscribe(res => {
             res.map(item => {
+                // @ts-ignore
                 this.firebaseService.getCollection().collection('properties').doc('' + item.payload.doc.id).valueChanges().subscribe(response => {
-                    console.log('item', {id: item.payload.doc.id, data: response});
+                    // @ts-ignore
                     this.properties.push({id: item.payload.doc.id, data: response});
                     // @ts-ignore
                     if (!this.locations.includes(response.location)) {
@@ -51,6 +52,10 @@ export class PropertiesComponent implements OnInit {
         this.property.isEnable = 'true';
         this.property.promotion = 'false';
         this.copyPropertyEmpty = {...this.property};
+    }
+    // tslint:disable-next-line:use-lifecycle-interface
+    ngOnDestroy() {
+
     }
 
     upload = async () => {
@@ -77,7 +82,7 @@ export class PropertiesComponent implements OnInit {
 
         if (this.propertyDocumentId === '-1') {
             console.log(this.firebaseService.getCollection().collection('properties').add(this.property));
-            window.location.reload();
+            // window.location.reload();
         } else {
             console.log('update ', this.property);
             console.log(this.firebaseService.getCollection().collection('properties').doc(this.propertyDocumentId).set(this.property));

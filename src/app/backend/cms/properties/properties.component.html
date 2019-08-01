@@ -38,27 +38,27 @@
             <input matInput placeholder="Titulo" [(ngModel)]="property.title" type="text" required>
         </mat-form-field>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-4">
         <mat-form-field>
             <mat-label>Tipo Operación</mat-label>
             <select matNativeControl required [(ngModel)]="property.operationType">
-                <option value="renta">Alquiler</option>
+                <option value="alquiler">Alquiler</option>
                 <option value="venta">Venta</option>
             </select>
         </mat-form-field>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-4">
         <mat-form-field>
             <mat-label>Tipo Propiedad</mat-label>
             <select matNativeControl required [(ngModel)]="property.propertyType">
                 <option value="apartamento">Apartamento</option>
-                <option value="casa">Cassa</option>
+                <option value="casa">Casa</option>
                 <option value="oficina">Oficina</option>
                 <option value="terreno">Terreno</option>
             </select>
         </mat-form-field>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-12">
         <div class="col-sm-2 pull-left">
             <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="property.currency">
                 <mat-button-toggle value="$">$</mat-button-toggle>
@@ -96,13 +96,13 @@
         <div class="col-sm-1 pull-left">
             <h5>Ubicación</h5>
         </div>
-        <div class="col-sm-2 pull-left">
+        <div class="col-sm-3 pull-left">
             <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="ubicacion">
                 <mat-button-toggle value="existente">Existente</mat-button-toggle>
                 <mat-button-toggle value="nueva">Nueva</mat-button-toggle>
             </mat-button-toggle-group>
         </div>
-        <div class="col-sm-7 pull-left" *ngIf="ubicacion=='nueva'">
+        <div class="col-sm-6 pull-left" *ngIf="ubicacion=='nueva'">
             <mat-form-field class="full-width">
                 <input matInput placeholder="Ubicación" [(ngModel)]="property.location" type="text" required>
             </mat-form-field>
@@ -161,5 +161,8 @@
         <button mat-stroked-button color="primary" class="pull-right" (click)="save()">
             GUARDAR
         </button>
+    </div>
+    <div class="col-sm-12 gallery-continaer">
+        <h3>Historial</h3>
     </div>
 </div>

@@ -33,6 +33,7 @@ export class GalleryComponent implements OnInit {
             this.actualItem = this.host + this.gallery[this.actualIndex];
         }, 5000);
     }
+
     pause = () => {
         clearInterval(this.interval);
     }
@@ -41,6 +42,27 @@ export class GalleryComponent implements OnInit {
         console.log('index', index);
         clearInterval(this.interval);
         this.actualIndex = index;
+        this.actualItem = this.host + this.gallery[this.actualIndex];
+        this.start();
+    }
+
+    prev = () => {
+        this.pause();
+        if (this.actualIndex - 1 < 0) {
+            this.actualIndex = this.gallerySize - 1;
+        } else {
+            this.actualIndex -= 1;
+        }
+        this.actualItem = this.host + this.gallery[this.actualIndex];
+        this.start();
+    }
+    next = () => {
+        this.pause();
+        if (this.actualIndex + 1 > this.gallerySize - 1) {
+            this.actualIndex = 0;
+        } else {
+            this.actualIndex += 1;
+        }
         this.actualItem = this.host + this.gallery[this.actualIndex];
         this.start();
     }

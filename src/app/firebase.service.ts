@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
-import {auth} from 'firebase/app';
 import {AngularFirestore} from '@angular/fire/firestore';
 
 
@@ -18,7 +17,7 @@ export class FirebaseService {
         } catch (e) {
             return e;
         }
-    };
+    }
 
     logout = async () => {
         try {
@@ -26,17 +25,21 @@ export class FirebaseService {
         } catch (e) {
             return e;
         }
-    };
+    }
 
     getHome = () => {
         return this.afs.collection('home');
-    };
+    }
 
     getProperties = () => {
         return this.afs.collection('properties');
-    };
+    }
 
     getCollection = () => {
         return this.afs;
-    };
+    }
+
+    getAuth = () => {
+        return this.fAuth;
+    }
 }

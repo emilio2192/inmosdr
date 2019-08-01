@@ -65,9 +65,10 @@ h3, h2{
     width:100%;
 }
 .amenidad{
-    clear:left;
+    float:left;
     margin-right: 25px;
     padding:10px 0px;
+    width: 100%;
 }
 .amenidad label{
     font-weight: 900;
@@ -88,6 +89,10 @@ input{
     padding:15px;
     text-align: center;
     font-size:18px;
+}
+.half{
+    float:left;
+    width:50%;
 }
 
 textarea{
@@ -122,4 +127,9 @@ button{
 button:hover{
     border:2px solid #74D4E1;
     color:#a1a1a1;
+}
+@media only screen and (max-width: 767px) {
+    .half{
+        width: 100%;
+    }
 }

@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="property-container" *ngIf="property">
-    <div class="gallery-container" >
+    <div class="gallery-container">
         <app-gallery [gallery]="property.gallery"></app-gallery>
     </div>
     <div class="content">
@@ -16,38 +16,43 @@
         <p>
             {{property.description}}
         </p>
-        <h2>Amenidades:</h2>
-        <p>
-       <span class="amenidad">
-        <label>Tipo de Operacion:</label> {{property.operationType}}
-       </span>
+        <div class="half">
+            <h2>Detalles:</h2>
+            <p>
+               <span class="amenidad">
+                <label>Tipo de Operacion:</label> {{property.operationType}}
+               </span>
 
-            <span class="amenidad">
-          <label>Tipo de propiedad:</label> {{property.propertyType}}
-       </span>
-            <span class="amenidad">
-        <label>Habitaciones:</label> {{property.rooms}}
-      </span>
-            <span class="amenidad">
-          <label>Baño:</label> {{property.bathroom}}
-      </span>
-            <span class="amenidad">
-          <label>Estacionamientos:</label> {{property.parking}}
-      </span>
-            <span class="amenidad">
-          <label>Medidas:</label> {{property.length}}
-      </span>
-        </p>
-
-        <h3>Deseas mas informacion?</h3>
-
-        <div class="frm-contacto">
-            <input type="text" placeholder="Nombre" [(ngModel)]="name"/>
-            <input type="text" placeholder="Correo" [(ngModel)]="email"/>
-            <input type="text" placeholder="Telefono" [(ngModel)]="phone"/>
-            <textarea placeholder="Comentario" [(ngModel)]="comment"></textarea>
-            <button (click)="contact()">Contactar</button>
+                        <span class="amenidad">
+                  <label>Tipo de propiedad:</label> {{property.propertyType}}
+               </span>
+                        <span class="amenidad">
+                <label>Habitaciones:</label> {{property.rooms}}
+              </span>
+                        <span class="amenidad">
+                  <label>Baño:</label> {{property.bathroom}}
+              </span>
+                        <span class="amenidad">
+                  <label>Estacionamientos:</label> {{property.parking}}
+              </span>
+                <span class="amenidad">
+                  <label>Área:</label> {{property.length}}
+              </span>
+            </p>
         </div>
+        <div class="half">
+            <h3>Deseas mas informacion?</h3>
+
+            <div class="frm-contacto">
+                <input type="text" placeholder="Nombre" [(ngModel)]="name"/>
+                <input type="text" placeholder="Correo" [(ngModel)]="email"/>
+                <input type="text" placeholder="Telefono" [(ngModel)]="phone"/>
+                <textarea placeholder="Comentario" [(ngModel)]="comment"></textarea>
+                <button (click)="contact()">Contactar</button>
+            </div>
+        </div>
+
+
 
     </div>
 

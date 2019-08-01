@@ -1,9 +1,10 @@
 <app-header></app-header>
-<div class="item" *ngFor="let item of topics">
-  <h3>{{item.title}}</h3>
-  <p>
-      {{item.content}}
-  </p>
+<div class="scroll">
+    <div class="item" *ngFor="let item of topics">
+        <h3>{{item.title}}</h3>
+        <p>
+            {{item.content}}
+        </p>
+    </div>
 </div>
-
 <app-footer></app-footer>
