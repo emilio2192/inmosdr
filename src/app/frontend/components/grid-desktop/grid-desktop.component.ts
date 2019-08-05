@@ -35,6 +35,7 @@ export class GridDesktopComponent implements OnInit {
                 // tslint:disable-next-line:max-line-length
                 this.firebaseService.getCollection().collection('properties').doc('' + item.payload.doc.id).valueChanges().subscribe(response => {
                     flag = this.validateToPush(response as Property);
+                    console.log('response', response, 'flag', flag);
                     if (flag) {
                         this.properties.push({id: item.payload.doc.id, data: response});
                     }
@@ -69,6 +70,9 @@ export class GridDesktopComponent implements OnInit {
 
     validateToPush = (property: Property): boolean => {
         console.log(property);
+        if (property.isEnable === 'false') {
+            return false;
+        }
         if (this.currency.length > 0 && this.currency !== property.currency) {
             return false;
         }
@@ -88,6 +92,5 @@ export class GridDesktopComponent implements OnInit {
             return false;
         }
         return true;
-
-    };
+    }
 }

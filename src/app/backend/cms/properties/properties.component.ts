@@ -12,7 +12,9 @@ import {Property} from '../../../models/property';
 })
 export class PropertiesComponent implements OnInit {
     form: FormGroup;
+    newForm: FormGroup;
 
+    // tslint:disable-next-line:max-line-length
     constructor(private request: RequestService, private location: Location, private formBuilder: FormBuilder, private firebaseService: FirebaseService) {
     }
 
@@ -25,14 +27,17 @@ export class PropertiesComponent implements OnInit {
     properties: Array<any> = [];
     copyPropertyEmpty: Property = {} as Property;
     locations = [];
+    files: any;
 
     async ngOnInit() {
         this.form = this.formBuilder.group({
             item: ['']
         });
+        this.newForm = this.formBuilder.group({ item: ['']});
         await this.firebaseService.getProperties().snapshotChanges().subscribe(res => {
             res.map(item => {
                 // @ts-ignore
+                // tslint:disable-next-line:max-line-length
                 this.firebaseService.getCollection().collection('properties').doc('' + item.payload.doc.id).valueChanges().subscribe(response => {
                     // @ts-ignore
                     this.properties.push({id: item.payload.doc.id, data: response});
@@ -41,7 +46,6 @@ export class PropertiesComponent implements OnInit {
                         // @ts-ignore
                         this.locations.push(response.location);
                     }
-                    console.log('propiedades', this.properties);
                 });
             });
         });
@@ -53,6 +57,7 @@ export class PropertiesComponent implements OnInit {
         this.property.promotion = 'false';
         this.copyPropertyEmpty = {...this.property};
     }
+
     // tslint:disable-next-line:use-lifecycle-interface
     ngOnDestroy() {
 
@@ -76,6 +81,29 @@ export class PropertiesComponent implements OnInit {
             const file = event.target.files[0];
             this.form.get('item').setValue(file);
         }
+    }
+
+    handleFilesInput(event) {
+
+        for (const element of event.target.files) {
+            console.log(element);
+            const formData: FormData = new FormData();
+            formData.append('item', element);
+            console.log('formData', formData);
+            this.request.post('sdr/upload.php', formData).subscribe((res) => {
+                // @ts-ignore
+                this.gallery.push(res.name);
+                // @ts-ignore
+                this.property.gallery.push(res.name);
+                // console.log('property', this.property);
+                // console.log(res);
+            });
+        }
+    }
+
+    uploadFiles = () => {
+        console.log('hola mundo');
+        console.log(this.files);
     }
 
     save = () => {

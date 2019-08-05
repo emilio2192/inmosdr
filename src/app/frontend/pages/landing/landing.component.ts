@@ -25,7 +25,7 @@ export class LandingComponent implements OnInit {
 
     async ngOnInit() {
         document.querySelector('body').style.height = '165vh';
-        document.querySelector('footer').style.bottom = '-65vh';
+        document.querySelector('footer').style.bottom = '-85vh';
         this.firebaseService.getCollection().collection('home').valueChanges().subscribe(response => {
             // @ts-ignore
             this.backgroundImage =  '/sdr/' + response[0].imagen;

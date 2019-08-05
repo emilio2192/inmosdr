@@ -8,7 +8,6 @@
         <option value="default">Tipo de operación</option>
         <option *ngFor="let item of operations" value="{{item}}">{{item}}</option>
     </select>
-<!--    <input type="text" [(ngModel)]="zone" placeholder="ubicacion (zona 10)"/>-->
     <select [(ngModel)]="zone">
         <option value="">Ubicación</option>
         <option *ngFor="let loc of zones" value="{{loc}}">{{loc}}</option>
@@ -17,38 +16,6 @@
         BUSCAR
     </button>
 </div>
-<!--<div class="search-container"  *ngIf="!isMobile">-->
-<!--    <div class="inputs-container">-->
-<!--        &lt;!&ndash; tipo de propiedad &ndash;&gt;-->
-<!--        <div class="dropdown">-->
-<!--            <div class="label-dropdown">-->
-<!--                {{(typeSelected=='default')? 'tipo de propiedad' : typeSelected}}-->
-<!--            </div>-->
-<!--            <div class="expanded-dropdown">-->
-<!--                <div class="item-dropdown" *ngFor="let item of typeProperties" (click)="typeSelected=item">-->
-<!--                    {{item}}-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; tipo de operacion &ndash;&gt;-->
-<!--        <div class="dropdown middle-dropdown">-->
-<!--            <div class="label-dropdown">-->
-<!--                {{(operationSelected=='default')? 'tipo de operacion' : operationSelected }}-->
-<!--            </div>-->
-<!--            <div class="expanded-dropdown">-->
-<!--                <div class="item-dropdown" *ngFor="let item of operations" (click)="operationSelected=item" >-->
-<!--                    {{item}}-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; ubicacion &ndash;&gt;-->
-<!--        <input type="text" class="ubicacion" placeholder="ubicacion (zona 10)" (change)="setZone($event)">-->
-<!--        &lt;!&ndash; buscar &ndash;&gt;-->
-<!--        <button class="search last-dropdown" (click)="search()">-->
-<!--            BUSCAR-->
-<!--        </button>-->
-<!--    </div>-->
-<!--</div>-->
 
 <div class="main-container" [style.background-image]="'url('+backgroundImage+')'">
     <div class="inputs-container">
@@ -85,9 +52,6 @@
                 </div>
             </div>
         </div>
-        <!-- ubicacion -->
-<!--        <input type="text" class="ubicacion" placeholder="ubicacion (zona 10)" (change)="setZone($event)">-->
-        <!-- buscar -->
         <button class="search last-dropdown" (click)="search()">
             BUSCAR
         </button>
@@ -124,15 +88,6 @@
                 </button>
             </div>
         </div>
-        <!--        <div class="property" *ngFor="let item of featureProperties">-->
-        <!--            <div class="photo" [style.background-image]="'url(/sdr/'+item.data.gallery[0]+')'"></div>-->
-        <!--            <div class="description">-->
-        <!--                <div class="title">{{item.data.title}}</div>-->
-        <!--                <a href="{{item.url}}" class="share">-->
-        <!--                    <fa-icon [icon]="['fas', 'share']"></fa-icon>-->
-        <!--                </a>-->
-        <!--            </div>-->
-        <!--        </div>-->
     </div>
 </div>
 <app-footer></app-footer>

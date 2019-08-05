@@ -133,10 +133,14 @@
         <div class="col-sm-5">
             <form [formGroup]="form" (ngSubmit)="upload()">
                 <input type="file" id="file" name="item" (change)="handleFileInput($event)"/>
-                &nbsp;
                 <button mat-stroked-button type="submit" color="primary">Subir</button>
             </form>
         </div>
+    </div>
+    <div class="col-sm-12">
+        <form [formGroup]="newForm" (ngSubmit)="uploadFiles()">
+            <input name="files" type="file" accept="image/*" (change)="handleFilesInput($event)"  multiple />
+        </form>
     </div>
     <div class="col-sm-12">
         <h5>Imagenes existentes</h5>
