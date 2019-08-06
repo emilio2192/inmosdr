@@ -102,7 +102,6 @@ export class PropertiesComponent implements OnInit {
     }
 
     uploadFiles = () => {
-        console.log('hola mundo');
         console.log(this.files);
     }
 
@@ -110,7 +109,7 @@ export class PropertiesComponent implements OnInit {
 
         if (this.propertyDocumentId === '-1') {
             console.log(this.firebaseService.getCollection().collection('properties').add(this.property));
-            // window.location.reload();
+            window.location.reload();
         } else {
             console.log('update ', this.property);
             console.log(this.firebaseService.getCollection().collection('properties').doc(this.propertyDocumentId).set(this.property));
@@ -130,9 +129,7 @@ export class PropertiesComponent implements OnInit {
     };
 
     deleteImage = (index) => {
-
         this.property.gallery.splice(index, 1);
-
     };
 
 }
