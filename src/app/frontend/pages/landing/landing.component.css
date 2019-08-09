@@ -177,9 +177,9 @@ body {
 
 .container-feature-properties {
     width: 80vw;
-    height: 30vh;
-    margin: 0;
-    float: left;
+    height: 345px;
+    margin: 0 auto;
+    /*float: left;*/
     padding: 10px 5px;
     display: grid;
     grid-template-columns: auto auto auto auto;

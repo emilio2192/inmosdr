@@ -54,7 +54,12 @@
                 <option value="apartamento">Apartamento</option>
                 <option value="casa">Casa</option>
                 <option value="oficina">Oficina</option>
+                <option value="bodega">Bodega</option>
                 <option value="terreno">Terreno</option>
+                <option value="clinica">Clinica</option>
+                <option value="ofibodega">Ofibodega</option>
+                <option value="edificio">Edificio</option>
+                <option value="local">Local</option>
             </select>
         </mat-form-field>
     </div>
@@ -168,5 +173,19 @@
     </div>
     <div class="col-sm-12 gallery-continaer">
         <h3>Historial</h3>
+    </div>
+    <div class="col-sm-12 gallery-container" *ngFor="let contact of contacts">
+        <div class="pull-left col-sm-2">
+            <label>Fecha:</label>{{contact.date}}
+        </div>
+        <div class="pull-left col-sm-3">
+            <label>Nombre:</label>{{contact.name}}
+        </div>
+        <div class="pull-left col-sm-2">
+            <label>Teléfono:</label>{{contact.phone}}
+        </div>
+        <div class="pull-left col-sm-4">
+            <label>Email:</label>{{contact.email}}
+        </div>
     </div>
 </div>

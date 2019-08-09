@@ -46,7 +46,7 @@ export class LandingComponent implements OnInit {
                         this.operations.push('' + response.operationType);
                     }
                     // @ts-ignore
-                    if (!this.zones.includes('' + response.location)) {
+                    if (!this.zones.includes('' + response.location) && response.location !== undefined) {
                         // @ts-ignore
                         this.zones.push('' + response.location);
                     }

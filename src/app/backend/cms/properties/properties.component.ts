@@ -28,12 +28,13 @@ export class PropertiesComponent implements OnInit {
     copyPropertyEmpty: Property = {} as Property;
     locations = [];
     files: any;
+    contacts: [];
 
     async ngOnInit() {
         this.form = this.formBuilder.group({
             item: ['']
         });
-        this.newForm = this.formBuilder.group({ item: ['']});
+        this.newForm = this.formBuilder.group({item: ['']});
         await this.firebaseService.getProperties().snapshotChanges().subscribe(res => {
             res.map(item => {
                 // @ts-ignore
@@ -56,11 +57,6 @@ export class PropertiesComponent implements OnInit {
         this.property.isEnable = 'true';
         this.property.promotion = 'false';
         this.copyPropertyEmpty = {...this.property};
-    }
-
-    // tslint:disable-next-line:use-lifecycle-interface
-    ngOnDestroy() {
-
     }
 
     upload = async () => {
@@ -103,7 +99,7 @@ export class PropertiesComponent implements OnInit {
 
     uploadFiles = () => {
         console.log(this.files);
-    }
+    };
 
     save = () => {
 
@@ -126,10 +122,26 @@ export class PropertiesComponent implements OnInit {
         }
         const element = this.properties.filter(element => element.id === this.propertyDocumentId);
         this.property = element[0].data;
+        this.getContacts();
     };
 
     deleteImage = (index) => {
         this.property.gallery.splice(index, 1);
+    };
+
+    getContacts = () => {
+        // tslint:disable-next-line:max-line-length
+        this.firebaseService.getCollection().collection('propertyContacted', ref => ref.where('propertyId', '==', this.propertyDocumentId).orderBy('date')).valueChanges().subscribe(
+            res => {
+                console.log('contacted');
+                console.log(res);
+                // @ts-ignore
+                this.contacts = res;
+            },
+            error => {
+                console.log('error', error);
+            }
+        );
     };
 
 }

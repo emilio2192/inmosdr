@@ -41,14 +41,21 @@
             </p>
         </div>
         <div class="half">
-            <h3>Deseas mas informacion?</h3>
+            <h3>
+                Deseas mas informacion?
+                <input type="text" style="opacity: 0;z-index:-999;" [(ngModel)]="url" id="url" #urlInput />
+                <button class="share" (click)="share(urlInput)">COMPARTIR</button>
+            </h3>
 
-            <div class="frm-contacto">
+            <div class="frm-contacto" *ngIf="!contacted">
                 <input type="text" placeholder="Nombre" [(ngModel)]="name"/>
                 <input type="text" placeholder="Correo" [(ngModel)]="email"/>
                 <input type="text" placeholder="Telefono" [(ngModel)]="phone"/>
                 <textarea placeholder="Comentario" [(ngModel)]="comment"></textarea>
                 <button (click)="contact()">Contactar</button>
+            </div>
+            <div class="frm-contacto" *ngIf="contacted">
+                <h5>Contactado</h5>
             </div>
         </div>
 
