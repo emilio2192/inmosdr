@@ -57,6 +57,16 @@
             <div class="frm-contacto" *ngIf="contacted">
                 <h5>Contactado</h5>
             </div>
+            <h3>
+                Deseas enviar por correo esta propiedad?
+            </h3>
+            <div class="frm-contacto">
+                <input type="text" placeholder="correo@correo.com" [(ngModel)]="shareEmail" />
+                <button (click)="sendForEmail()">Enviar</button>
+            </div>
+            <div class="frm-contacto" *ngIf="contactedEmail">
+                <h5>Enviado</h5>
+            </div>
         </div>
 
 

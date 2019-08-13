@@ -6,6 +6,7 @@ import * as moment from 'moment';
 import {RequestService} from '../../../request.service';
 
 import {Meta} from '@angular/platform-browser';
+import {Property} from '../../../models/property';
 
 
 @Component({
@@ -16,13 +17,15 @@ import {Meta} from '@angular/platform-browser';
 export class PropertyComponent implements OnInit {
     title: string;
     propertyId: string;
-    property: any;
+    property: Property;
     name: string;
     phone: string;
     comment: string;
     email: string;
     contacted = false;
     url: string;
+    shareEmail: string;
+    contactedEmail = false;
 
     // tslint:disable-next-line:max-line-length
     constructor(private router: Router, private route: ActivatedRoute, private firebaseService: FirebaseService, private request: RequestService, private meta: Meta) {
@@ -31,9 +34,12 @@ export class PropertyComponent implements OnInit {
             this.propertyId = params.id;
         });
         this.firebaseService.getCollection().collection('properties').doc('' + this.propertyId).valueChanges().subscribe(response => {
-            this.property = response;
+            this.property = response as Property;
+            let description = this.property.propertyType + ', en ' + this.property.operationType + ', ' + this.property.location;
             // tslint:disable-next-line:max-line-length
-            this.url = `https://inmobiliariasdr.com/sdr/seo.php?propertyId=${this.propertyId}&title=${encodeURI(this.property.title)}&image=${encodeURI(this.property.gallery[0])}`;
+            description += ', ' + this.property.rooms + ' habitaciones, ' + this.property.bathroom + ' baños. ' + this.property.currency + '' + this.property.price;
+            // tslint:disable-next-line:max-line-length
+            this.url = `https://inmobiliariasdr.com/sdr/seo.php?propertyId=${this.propertyId}&title=${encodeURI(description)}&image=${encodeURI(this.property.gallery[0])}`;
             // @ts-ignore
             response.gallery.forEach((item, index) => {
                 this.property.gallery[index] = '/sdr/' + item;
@@ -43,7 +49,8 @@ export class PropertyComponent implements OnInit {
 
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
 
     share = (inputElement) => {
 
@@ -51,9 +58,9 @@ export class PropertyComponent implements OnInit {
         document.execCommand('copy');
 
         // @ts-ignore
-        alert('copy');
+        alert('Enlace copiado');
 
-    }
+    };
 
     contact = async () => {
         const date = moment().format('D-MM-YYYY');
@@ -81,5 +88,17 @@ export class PropertyComponent implements OnInit {
             console.log(res);
             this.contacted = true;
         });
-    }
+    };
+    sendForEmail = () => {
+        const mail = {
+            propertyId: this.propertyId,
+            email: this.shareEmail,
+            data: this.property
+        };
+        console.log(mail);
+        this.request.otherPost('https://inmobiliariasdr.com/sdr/share.php', mail).subscribe(res => {
+            console.log(res);
+            this.contactedEmail = true;
+        });
+    };
 }
