@@ -42,11 +42,11 @@
             </div>
         </div>
         <!-- tipo de operacion -->
-        <div class="dropdown middle-dropdown">
+        <div class="dropdown middle-dropdown" (mouseover)="display(true)" (mouseleave)="display(false)">
             <div class="label-dropdown">
                 {{(zone == '') ? 'Ubicación' : zone }}
             </div>
-            <div class="expanded-dropdown">
+            <div class="expanded-dropdown" *ngIf="showLocation">
                 <div class="item-dropdown" *ngFor="let loc of zones" (click)="zone=loc">
                     {{loc | uppercase}}
                 </div>

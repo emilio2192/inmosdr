@@ -27,6 +27,7 @@ export class PropertyComponent implements OnInit {
     shareEmail: string;
     contactedEmail = false;
 
+
     // tslint:disable-next-line:max-line-length
     constructor(private router: Router, private route: ActivatedRoute, private firebaseService: FirebaseService, private request: RequestService, private meta: Meta) {
         this.route.params.subscribe(params => {
@@ -38,6 +39,7 @@ export class PropertyComponent implements OnInit {
             let description = this.property.propertyType + ', en ' + this.property.operationType + ', ' + this.property.location;
             // tslint:disable-next-line:max-line-length
             description += ', ' + this.property.rooms + ' habitaciones, ' + this.property.bathroom + ' baños. ' + this.property.currency + '' + this.property.price;
+            description = encodeURIComponent(description);
             // tslint:disable-next-line:max-line-length
             this.url = `https://inmobiliariasdr.com/sdr/seo.php?propertyId=${this.propertyId}&title=${encodeURI(description)}&image=${encodeURI(this.property.gallery[0])}`;
             // @ts-ignore
@@ -97,8 +99,9 @@ export class PropertyComponent implements OnInit {
         };
         console.log(mail);
         this.request.otherPost('https://inmobiliariasdr.com/sdr/share.php', mail).subscribe(res => {
-            console.log(res);
             this.contactedEmail = true;
+            window.location.reload();
         });
-    };
+    }
+
 }

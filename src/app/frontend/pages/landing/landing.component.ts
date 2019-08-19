@@ -10,10 +10,7 @@ import {environment} from '../../../../environments/environment';
 })
 export class LandingComponent implements OnInit {
 
-    constructor(private firebaseService: FirebaseService, private route: Router) {
-
-    }
-
+    constructor(private firebaseService: FirebaseService, private route: Router) {}
     typeProperties: Array<string> = [];
     operations: Array<string> = [];
     typeSelected = 'default';
@@ -22,6 +19,7 @@ export class LandingComponent implements OnInit {
     zone = '';
     featureProperties = [];
     backgroundImage: string;
+    showLocation = false;
 
     async ngOnInit() {
         document.querySelector('body').style.height = '165vh';
@@ -29,7 +27,6 @@ export class LandingComponent implements OnInit {
         this.firebaseService.getCollection().collection('home').valueChanges().subscribe(response => {
             // @ts-ignore
             this.backgroundImage =  '/sdr/' + response[0].imagen;
-            console.log(this.backgroundImage);
         });
         await this.firebaseService.getProperties().snapshotChanges().subscribe(async (res) => {
             await res.map(item => {
@@ -72,18 +69,20 @@ export class LandingComponent implements OnInit {
 
     setZone = (event) => {
         this.zone = event.target.value;
-    };
+    }
 
     search = () => {
 
         this.zone = this.zone.replace(' ', '_');
         const url = '/search/' + this.typeSelected + '/' + this.operationSelected + '?zona=' + this.zone;
         window.location.href = url;
-    };
+    }
     redirectProperty = (title, id) => {
         const newTitle = title.split(' ').join('_');
         window.location.href = '/propiedad/' + newTitle + '/' + id;
-    };
+    }
 
-
+    display = (status) => {
+        this.showLocation = status;
+    }
 }
