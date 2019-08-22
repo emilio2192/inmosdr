@@ -55,14 +55,38 @@ export class PropertyComponent implements OnInit {
     }
 
     share = (inputElement) => {
-
+        const range = document.createRange();
+        inputElement.contentEditable = true;
+        range.selectNodeContents(inputElement);
+        const s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(range);
+        inputElement.setSelectionRange(0, 999999);
         inputElement.select();
+
         document.execCommand('copy');
 
         // @ts-ignore
         alert('Enlace copiado');
 
-    };
+    }
+
+    otherShare = () => {
+        const emailLink = document.querySelector('#url');
+        const range = document.createRange();
+        range.selectNode(emailLink);
+        window.getSelection().addRange(range);
+        try {
+            // Now that we've selected the anchor text, execute the copy command
+            const successful = document.execCommand('copy');
+            const msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copy email command was ' + msg);
+            alert('Enlace copiado!');
+        } catch (err) {
+            console.log('Oops, unable to copy');
+        }
+        window.getSelection().removeAllRanges();
+    }
 
     contact = async () => {
         const date = moment().format('D-MM-YYYY');

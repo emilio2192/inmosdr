@@ -28,9 +28,10 @@ export class ContactoComponent implements OnInit {
                 content: this.comment
             }
         };
-        this.request.otherPost('http://inmobiliariasdr.com/sdr/mail.php', mail).subscribe(res => {
+        this.request.otherPost('https://inmobiliariasdr.com/sdr/mail.php', mail).subscribe(res => {
             console.log(res);
+            window.location.reload();
         });
-    };
+    }
 
 }

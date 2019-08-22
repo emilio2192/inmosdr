@@ -5,7 +5,7 @@
   <input type="text" placeholder="Correo" [(ngModel)]="email" />
   <input type="text" placeholder="Telefono" [(ngModel)]="phone" />
   <textarea placeholder="Comentario" [(ngModel)]="comment"></textarea>
-  <button>Contactar</button>
+  <button (click)="contact()">Contactar</button>
 </div>
 
 <app-footer></app-footer>

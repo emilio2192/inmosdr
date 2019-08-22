@@ -42,9 +42,12 @@
         </div>
         <div class="half">
             <h3>
-                Deseas mas informacion?
-                <input type="text" style="opacity: 0;z-index:-999;" [(ngModel)]="url" id="url" #urlInput />
-                <button class="share" (click)="share(urlInput)">COMPARTIR</button>
+                <button class="share" (click)="otherShare()">COMPARTIR</button>
+                <span style="float:left; width:100%;">Deseas mas informacion?</span>
+                <form action="#" name="frm">
+                    <input type="text"  name="url" style="opacity: 0;z-index:-999;" [(ngModel)]="url" id="url" #urlInput />
+                </form>
+
             </h3>
 
             <div class="frm-contacto" *ngIf="!contacted">
