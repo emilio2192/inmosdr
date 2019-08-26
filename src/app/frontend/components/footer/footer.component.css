@@ -122,8 +122,22 @@ footer > div.camara > img{
     }
 }
 
-@media only screen and (max-width: 321px){
-    .social-media > ul > li{
-        padding-left: 18% !important;
-    }
+@media only screen and (max-width: 660px){
+    /*.social-media > ul > li{*/
+    /*    padding-left: 18% !important;*/
+    /*}*/
+
+
+        .social-media > ul{
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        .social-media > ul > li{
+            padding-left:0 !important;
+            float:none;
+            width:auto;
+        }
+
 }

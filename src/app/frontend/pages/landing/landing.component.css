@@ -109,6 +109,7 @@ body {
     opacity: 0;
     float: left;
     min-height: 100%;
+    z-index:9999;
 
 }
 
