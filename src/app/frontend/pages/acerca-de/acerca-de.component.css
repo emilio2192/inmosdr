@@ -19,7 +19,7 @@ h3{
 }
 @media only screen and (max-width: 767px) {
     .scroll{
-        height: 64vh;
+        height: 55vh;
     }
 }
 @media only screen and (max-width: 321px) {

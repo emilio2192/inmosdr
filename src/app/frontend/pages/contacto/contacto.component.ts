@@ -16,6 +16,7 @@ export class ContactoComponent implements OnInit {
     }
 
     ngOnInit() {
+        document.querySelector('footer').style.bottom = '-90vh';
     }
 
     contact = async () => {

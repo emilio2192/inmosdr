@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class GalleryComponent implements OnInit {
     @Input() gallery: Array<string>;
     actualItem: string;
-    host = 'http://inmobiliariasdr.com/';
+    host = 'https://inmobiliariasdr.com/';
     gallerySize: number;
     interval;
     actualIndex = 0;
