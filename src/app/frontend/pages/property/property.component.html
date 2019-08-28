@@ -64,7 +64,8 @@
                 Deseas enviar por correo esta propiedad?
             </h3>
             <div class="frm-contacto">
-                <input type="text" placeholder="correo@correo.com" [(ngModel)]="shareEmail" />
+                <input type="text" placeholder="remitente@correo.com" [(ngModel)]="fromShare">
+                <input type="text" placeholder="destinatario@correo.com" [(ngModel)]="shareEmail" />
                 <button (click)="sendForEmail()">Enviar</button>
             </div>
             <div class="frm-contacto" *ngIf="contactedEmail">

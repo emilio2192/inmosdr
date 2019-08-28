@@ -25,6 +25,7 @@ export class PropertyComponent implements OnInit {
     contacted = false;
     url: string;
     shareEmail: string;
+    fromShare: string;
     contactedEmail = false;
 
 
@@ -119,6 +120,7 @@ export class PropertyComponent implements OnInit {
         const mail = {
             propertyId: this.propertyId,
             email: this.shareEmail,
+            from: this.fromShare,
             data: this.property
         };
         console.log(mail);
