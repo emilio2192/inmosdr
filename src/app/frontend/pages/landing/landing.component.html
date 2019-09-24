@@ -20,11 +20,11 @@
 <div class="main-container" [style.background-image]="'url('+backgroundImage+')'">
     <div class="inputs-container">
         <!-- tipo de propiedad -->
-        <div class="dropdown">
+        <div class="dropdown" (mouseover)="displayTypeProperty(true)" (mouseleave)="displayTypeProperty(false)">
             <div class="label-dropdown">
                 {{(typeSelected == 'default') ? 'Tipo de propiedad' : typeSelected}}
             </div>
-            <div class="expanded-dropdown">
+            <div class="expanded-dropdown" *ngIf="showTypeProperty">
                 <div class="item-dropdown" *ngFor="let item of typeProperties" (click)="typeSelected=item">
                     {{item | uppercase}}
                 </div>

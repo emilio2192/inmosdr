@@ -20,6 +20,7 @@ export class LandingComponent implements OnInit {
     featureProperties = [];
     backgroundImage: string;
     showLocation = false;
+    showTypeProperty = false;
 
     async ngOnInit() {
         document.querySelector('body').style.height = '165vh';
@@ -84,5 +85,8 @@ export class LandingComponent implements OnInit {
 
     display = (status) => {
         this.showLocation = status;
+    }
+    displayTypeProperty = (status) => {
+        this.showTypeProperty = status;
     }
 }
